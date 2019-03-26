@@ -37,7 +37,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 
 <!-- Loading the mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -13264,12 +13264,57 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="SaltyBet">SaltyBet<a class="anchor-link" href="#SaltyBet">&#182;</a></h1><ul>
-<li><p>Hosted on Twitch and runs 24/7</p>
+<div style="display: inline-block">
+    <h1> SaltyBet </h1>
+
+<ul>
+    <li>Hosted on Twitch and runs 24/7</li>
+
+<li>Over 1,000,000 matches since 2011</li>
+
+<li>9,664 unique characters</li>
+
+</ul>
+</div>
+<div style="float:right">
+    <img src="SaltyBet.png">
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<tr>
+<td>
+    <div style="display: inline-block;">
+    <h1> Character Attributes </h1>
+    <ul>
+    <li>Numerical values describing <b>Health</b>, <b>Attack Strength</b>, <br> and <b>Meter</b> work in the game engine</li>
+        <br>
+    <li>Each character as a programmed <b>AI</b> to complement its style</li>
+        <br>
+    <li>The image defining a character is known as a <br> <b>Hitbox</b> and defines where collisions can occur</li>
+    </ul>
+    </div>
+</td>
+<td>
+<img src='jotaro-0.png' style='display: inline-block; height: 234px; vertical-align: baseline; margin-left:auto; margin-right:auto;'/>
+<img src='bwars-0.png' style='display: inline-block; height: 36px; vertical-align: baseline; margin-left:auto; margin-right:auto;'/>
+    </td>
+</tr>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Questions-of-Interest">Questions of Interest<a class="anchor-link" href="#Questions-of-Interest">&#182;</a></h1><ul>
+<li><p>Does inclusion of hitbox advantages improve predictive accuracy?</p>
 </li>
-<li><p>Over 1,000,000 matches since 2011</p>
+<li><p>Is there a specific threshold of hitbox difference which matters?</p>
 </li>
-<li><p>9,664 unique characters</p>
+<li><p>How does character attack range determine hitbox advantage vulnberability?</p>
 </li>
 </ul>
 
@@ -13279,7 +13324,7 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="SaltyBet.png"></p>
+<h1 id="Disconnected-Comparison-Graph">Disconnected Comparison Graph<a class="anchor-link" href="#Disconnected-Comparison-Graph">&#182;</a></h1><p><img src="disconnected_1.png" style="height: 500px"/></p>
 
 </div>
 </div>
@@ -13287,97 +13332,15 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Character-Attributes">Character Attributes<a class="anchor-link" href="#Character-Attributes">&#182;</a></h1><ul>
-<li><p>Numerical values describing Health, Attack Strength, and Meter work in the game engine</p>
+<h1 id="References">References<a class="anchor-link" href="#References">&#182;</a></h1><ul>
+<li><p>Glickman, M. E. (n.d.). <em>A Comprehensive Guide to Chess Rankings.</em> Department of Mathematics Boston University 111 Cummington St., Boston, MA 02215.</p>
 </li>
-<li><p>Each character as a programmed AI to complement its style</p>
+<li><p>Tsukida, K., &amp; Gupta, M. R. (2011, May). <em>How to Analyze Paired Comparison Data</em> [Https://apps.dtic.mil/dtic/tr/fulltext/u2/a543806.pdf]. University of Washington, Seattle, WA 98195.</p>
 </li>
-<li><p>The image defining a character is known as a Hitbox and defines where collisions can occur</p>
+<li><p>McCormick, R. (2013, September 11). Twitch-based: Exploring the Salty Bet phenomenon. Retrieved from <a href="https://www.eurogamer.net/articles/2013-09-11-twitch-based-exploring-the-salty-bet-phenomenon">https://www.eurogamer.net/articles/2013-09-11-twitch-based-exploring-the-salty-bet-phenomenon</a></p>
 </li>
 </ul>
 
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Hitbox-Advantage">Hitbox Advantage<a class="anchor-link" href="#Hitbox-Advantage">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src='jotaro-0.png' style='display: inline-block; height: 351px; vertical-align: baseline'>
-<img src='bwars-0.png' style='display: inline-block; height: 54px; vertical-align: baseline'></p>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Question-of-Interest">Question of Interest<a class="anchor-link" href="#Question-of-Interest">&#182;</a></h1><ul>
-<li><p>By what factor do hitbox advantages improve predictive accuracy, if at all?</p>
-</li>
-<li><p>Is there a specific hitbox differential after which this factor matters more?</p>
-</li>
-<li><p>For certain characters, attack style may not be limited by opponents (Area of Effect attacks). Can characters be identified?</p>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Image-Size-Distribution">Image Size Distribution<a class="anchor-link" href="#Image-Size-Distribution">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<table><tr><td><img src='scatter_plot.png'></td><td><img src='density_plot.png'></td></tr></table>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Disconnected-Comparison-Graph">Disconnected Comparison Graph<a class="anchor-link" href="#Disconnected-Comparison-Graph">&#182;</a></h1><ul>
-<li><p>A comparison graph is made by connecting each character (node) with a shared match (edge)</p>
-</li>
-<li><p>9,664*(9,664-1)/2 = 46,691,616 connections to ensure a completely connected graph</p>
-</li>
-<li><p>Possible solution: apply priors to link disconnected components</p>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Next-Steps">Next Steps<a class="anchor-link" href="#Next-Steps">&#182;</a></h1><ul>
-<li><p>Complete Dataset - Scraping is limited</p>
-</li>
-<li><p>Assess connectivity on the comparison graph from all matches</p>
-</li>
-<li><p>Improve Computational Time</p>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="References">References<a class="anchor-link" href="#References">&#182;</a></h1>
 </div>
 </div>
 </div></section></section>
