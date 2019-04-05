@@ -17,13 +17,13 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global}
-  \entry{btm}{article}{}
+  \entry{bts}{manual}{}
     \name{author}{2}{}{%
-      {{hash=TH}{%
-         family={Turner},
-         familyi={T\bibinitperiod},
-         given={Heather},
-         giveni={H\bibinitperiod},
+      {{hash=KE}{%
+         family={Kaye},
+         familyi={K\bibinitperiod},
+         given={Ella},
+         giveni={E\bibinitperiod},
       }}%
       {{hash=FD}{%
          family={Firth},
@@ -32,21 +32,19 @@
          giveni={D\bibinitperiod},
       }}%
     }
-    \strng{namehash}{THFD1}
-    \strng{fullhash}{THFD1}
+    \strng{namehash}{KEFD1}
+    \strng{fullhash}{KEFD1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{T}
-    \field{sortinithash}{T}
-    \field{number}{9}
-    \field{pages}{1\bibrangedash 21}
-    \field{title}{Bradley-Terry Models in {R}: The {BradleyTerry2} Package}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{note}{R package version 0.1.0}
+    \field{title}{BradleyTerryScalable: Fits the Bradley-Terry Model to
+  Potentially Large and Sparse Networks of Comparison Data}
     \verb{url}
-    \verb http://www.jstatsoft.org/v48/i09/
+    \verb https://CRAN.R-project.org/package=BradleyTerryScalable
     \endverb
-    \field{volume}{48}
-    \field{journaltitle}{Journal of Statistical Software}
-    \field{year}{2012}
+    \field{year}{2017}
   \endentry
 \enddatalist
 \endinput
