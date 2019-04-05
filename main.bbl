@@ -1,0 +1,52 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.0 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nty/global//global/global}
+  \entry{btm}{article}{}
+    \name{author}{2}{}{%
+      {{hash=TH}{%
+         family={Turner},
+         familyi={T\bibinitperiod},
+         given={Heather},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=FD}{%
+         family={Firth},
+         familyi={F\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{THFD1}
+    \strng{fullhash}{THFD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{number}{9}
+    \field{pages}{1\bibrangedash 21}
+    \field{title}{Bradley-Terry Models in {R}: The {BradleyTerry2} Package}
+    \verb{url}
+    \verb http://www.jstatsoft.org/v48/i09/
+    \endverb
+    \field{volume}{48}
+    \field{journaltitle}{Journal of Statistical Software}
+    \field{year}{2012}
+  \endentry
+\enddatalist
+\endinput

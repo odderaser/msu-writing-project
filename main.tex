@@ -1,8 +1,8 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{setspace}
-\usepackage[backend=bibtext]{biblatex}
-\bibliography{writing_project_bibliography}
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{references}
 \doublespacing
 
 \title{Using Paired Comparison Models to Predict Hitbox Advantage}
@@ -67,10 +67,10 @@ This reduces to a convient logistic function which can be evaluated more quickly
 
 \subsection{Adding Additional Predictors}
 
-In many cases, there are additional predictors which assist in identifying which preference will be chosen or team will win. In sports, a home-field advantage terms is included in the model. [Cricket and Baseball R package] This term enters the model as a categorical variable describing which team is home and which is away with the home teaming being coded as a 1. In general, we would like to add a variety of covariates to the model. The general formula for adding covariates to a Bradley-Terry model is discussed in detail in [REFERENCE] and is shown below in equation 4.
+In many cases, there are additional predictors which assist in identifying which preference will be chosen or team will win. In sports, a home-field advantage terms is included in the model. [Cricket and Baseball R package] This term enters the model as a categorical variable describing which team is home and which is away with the home teaming being coded as a 1. In general, we would like to add a variety of covariates to the model. The general formula for adding covariates to a Bradley-Terry model is discussed in detail in [REFERENCE] and is shown below in equation 4. \cite{btm}
 
 % TODO: Equation 4 -- Score Function
 
-
+\printbibliography
 
 \end{document}

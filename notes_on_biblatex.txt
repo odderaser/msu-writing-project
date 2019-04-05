@@ -1,0 +1,5 @@
+When using CLI based bibtex and latex, it may be required to run the command:
+
+''' bibtex main.tex '''
+
+to initialize the database with new citation entries.
