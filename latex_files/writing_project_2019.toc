@@ -1,25 +1,55 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1}Background}{3}% 
+\contentsline {section}{\numberline {1}Background \& Motivation}{3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2}The Data}{5}% 
+\contentsline {subsection}{\numberline {1.1}What is SaltyBet?}{3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Models}{6}% 
+\contentsline {subsection}{\numberline {1.2}Bayesian Methods}{6}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1}Adding Additional Predictors}{9}% 
+\contentsline {subsubsection}{\numberline {1.2.1}A Natural Estimation of Variance}{6}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.1}"Home-Field" Advantage}{9}% 
+\contentsline {subsubsection}{\numberline {1.2.2}A Natural Recursive Formula}{7}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Estimating Strength Parameters}{10}% 
+\contentsline {subsubsection}{\numberline {1.2.3}Natural Integration with Markov Decision Processes}{8}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1}Maximum Likelihood Estimation}{10}% 
+\contentsline {subsection}{\numberline {1.3}Data Collection}{9}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2}Minorization-Maximization Algorithms}{10}% 
+\contentsline {section}{\numberline {2}Models}{10}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3}Bayesian Estimation Methods}{11}% 
+\contentsline {subsection}{\numberline {2.1}Thurstone-Molster Model}{10}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Comparison Graph Connectivity}{12}% 
+\contentsline {subsection}{\numberline {2.2}Bradley-Terry Model}{12}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}References - Left in for... reference}{16}% 
+\contentsline {subsubsection}{\numberline {2.2.1}Original Bradley-Terry Model}{12}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}Appendix-R Code}{17}% 
+\contentsline {subsubsection}{\numberline {2.2.2}``Home-Field Advantage'' Model}{13}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.2.3}``Conditional Home-Field Advantage''}{14}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3}Model Estimation}{15}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.3.1}Maximum Likelihood Estimation}{15}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.3.2}Minorization-Maximization Algorithms}{15}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.3.3}Bayesian Estimation Methods}{16}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}Comparison Graph Connectivity}{17}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1}Comparison Graph Definition}{17}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2}Condition of Strong Connectivity}{19}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3}Condition of Weak Connectivity}{20}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4}Simulation of Graph Connectivity}{21}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Data Analysis}{22}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1}Data Cleaning}{22}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2}Exploratory Data Analysis}{23}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}References - Left in for... reference}{24}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6}Appendix-R Code}{25}% 
