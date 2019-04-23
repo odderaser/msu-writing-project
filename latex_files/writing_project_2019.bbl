@@ -17,34 +17,378 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global}
-  \entry{bts}{manual}{}
-    \name{author}{2}{}{%
-      {{hash=KE}{%
-         family={Kaye},
-         familyi={K\bibinitperiod},
-         given={Ella},
-         giveni={E\bibinitperiod},
-      }}%
-      {{hash=FD}{%
-         family={Firth},
-         familyi={F\bibinitperiod},
-         given={David},
-         giveni={D\bibinitperiod},
+  \entry{gamezone_2017}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{1}
+    \field{sortinithash}{1}
+    \field{title}{10 helpful ways to get you out of the Salt Mines in Salty
+  Bet}
+    \verb{url}
+    \verb https://www.gamezone.com/originals/10-helpful-ways-to-get-you-out-of-
+    \verb the-salt-mines-in-salty-bet/
+    \endverb
+    \field{journaltitle}{GameZone}
+    \field{year}{2017}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{giantbomb}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{title}{Automating SaltyBet - My Live and Ongoing Adventure - DONE!!}
+    \verb{url}
+    \verb https://www.giantbomb.com/profile/tycobb/blog/automating-saltybet-my-
+    \verb live-and-ongoing-adventure-/102462/
+    \endverb
+    \field{journaltitle}{Giant Bomb}
+  \endentry
+
+  \entry{sbtwitter}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=BS}{%
+         family={Bet},
+         familyi={B\bibinitperiod},
+         given={Salty},
+         giveni={S\bibinitperiod},
       }}%
     }
-    \strng{namehash}{KEFD1}
-    \strng{fullhash}{KEFD1}
+    \strng{namehash}{BS1}
+    \strng{fullhash}{BS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{K}
-    \field{sortinithash}{K}
-    \field{note}{R package version 0.1.0}
-    \field{title}{BradleyTerryScalable: Fits the Bradley-Terry Model to
-  Potentially Large and Sparse Networks of Comparison Data}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{Salty Bet (@SaltyBet)}
     \verb{url}
-    \verb https://CRAN.R-project.org/package=BradleyTerryScalable
+    \verb https://twitter.com/saltybet
     \endverb
-    \field{year}{2017}
+    \field{year}{2018}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{chartrand_1977}{book}{}
+    \name{author}{1}{}{%
+      {{hash=CG}{%
+         family={Chartrand},
+         familyi={C\bibinitperiod},
+         given={G.},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Dover}%
+    }
+    \strng{namehash}{CG1}
+    \strng{fullhash}{CG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{isbn}{9780486247755}
+    \field{series}{Dover Books on Mathematics Series}
+    \field{title}{Introductory Graph Theory}
+    \verb{url}
+    \verb https://books.google.com/books?id=rYuToT7vHbMC
+    \endverb
+    \field{year}{1977}
+  \endentry
+
+  \entry{mugenwiki}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=E}{%
+         family={ElecByte},
+         familyi={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{E1}
+    \strng{fullhash}{E1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{title}{M.U.G.E.N. Beta Release README}
+    \verb{url}
+    \verb https://web.archive.org/web/20030806070618/http://mugen.elecbyte.com/
+    \verb docs/readme.txt
+    \endverb
+    \field{year}{2002}
+    \field{urlday}{23}
+    \field{urlmonth}{04}
+    \field{urlyear}{2019}
+  \endentry
+
+  \entry{ford_1957}{article}{}
+    \name{author}{1}{}{%
+      {{hash=FLR}{%
+         family={Ford},
+         familyi={F\bibinitperiod},
+         given={L.\bibnamedelima R.},
+         giveni={L\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Mathematical Association of America}%
+    }
+    \strng{namehash}{FLR1}
+    \strng{fullhash}{FLR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{issn}{00029890, 19300972}
+    \field{number}{8}
+    \field{pages}{28\bibrangedash 33}
+    \field{title}{Solution of a Ranking Problem from Binary Comparisons}
+    \verb{url}
+    \verb http://www.jstor.org/stable/2308513
+    \endverb
+    \field{volume}{64}
+    \field{journaltitle}{The American Mathematical Monthly}
+    \field{year}{1957}
+  \endentry
+
+  \entry{rps}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{Have You Played... Salty Bet?}
+    \verb{url}
+    \verb https://www.rockpapershotgun.com/2017/12/15/have-you-played-salty-bet
+    \verb /
+    \endverb
+    \field{journaltitle}{Rock Paper Shotgun}
+  \endentry
+
+  \entry{hilliard}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=HK}{%
+         family={Hilliard},
+         familyi={H\bibinitperiod},
+         given={Kyle},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HK1}
+    \strng{fullhash}{HK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{An Interview With The Mind Behind Twitch Plays Pokémon}
+    \verb{url}
+    \verb https://www.gameinformer.com/b/features/archive/2014/03/14/an-intervi
+    \verb ew-with-the-mind-behind-twitch-plays-pok-233-mon.aspx
+    \endverb
+    \field{journaltitle}{Game Informer}
+  \endentry
+
+  \entry{miller_2013}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=MP}{%
+         family={Miller},
+         familyi={M\bibinitperiod},
+         given={Patrick},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MP1}
+    \strng{fullhash}{MP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{title}{Sodium Intake: An Interview with the Creator of Salty Bet}
+    \verb{url}
+    \verb http://shoryuken.com/2013/08/12/sodium-intake-an-interview-with-the-c
+    \verb reator-of-salty-bet/
+    \endverb
+    \field{journaltitle}{Shoryuken}
+    \field{year}{2013}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{spriteclub}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{SpriteClub}
+    \verb{url}
+    \verb https://mugen.spriteclub.tv/
+    \endverb
+    \field{journaltitle}{SpriteClub}
+  \endentry
+
+  \entry{explosionduck}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{Story of a Betting Bot}
+    \verb{url}
+    \verb https://explosionduck.com/wp/story-of-a-betting-bot/
+    \endverb
+    \field{journaltitle}{ExplosionDuck}
+  \endentry
+
+  \entry{saltbot}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=S}{%
+         family={Synkarius},
+         familyi={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{S1}
+    \strng{fullhash}{S1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{synkarius/saltbot}
+    \verb{url}
+    \verb https://github.com/synkarius/saltbot
+    \endverb
+    \field{journaltitle}{GitHub}
+    \field{year}{2019}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{tarjan_1972}{article}{}
+    \name{author}{1}{}{%
+      {{hash=TR}{%
+         family={Tarjan},
+         familyi={T\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TR1}
+    \strng{fullhash}{TR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \verb{doi}
+    \verb 10.1137/0201010
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/0201010
+    \endverb
+    \field{number}{2}
+    \field{pages}{146\bibrangedash 160}
+    \field{title}{Depth-First Search and Linear Graph Algorithms}
+    \verb{url}
+    \verb https://doi.org/10.1137/0201010
+    \endverb
+    \field{volume}{1}
+    \field{journaltitle}{SIAM Journal on Computing}
+    \field{year}{1972}
+  \endentry
+
+  \entry{sullygnome}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{title}{Twitch analytics and statistics}
+    \verb{url}
+    \verb http://sullygnome.com/
+    \endverb
+    \field{journaltitle}{SullyGnome}
+  \endentry
+
+  \entry{warr_2013}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=WP}{%
+         family={Warr},
+         familyi={W\bibinitperiod},
+         given={Philippa},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {PC Gamer THE GLOBAL AUTHORITY ON PC GAMES}%
+    }
+    \strng{namehash}{WP1}
+    \strng{fullhash}{WP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{title}{Salty Bet: a pop culture royal rumble we can't stop watching}
+    \verb{url}
+    \verb https://www.pcgamer.com/salty-bet-1/
+    \endverb
+    \field{journaltitle}{pcgamer}
+    \field{year}{2013}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{welsh_2013}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{title}{What is Salty Bet? The Salty Bet Beginners Guide}
+    \verb{url}
+    \verb http://calmdowntom.com/2013/08/what-is-salty-bet/
+    \endverb
+    \field{journaltitle}{Thomas Welsh}
+    \field{year}{2013}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{kotaku}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=WL}{%
+         family={Wichtowski},
+         familyi={W\bibinitperiod},
+         given={Leo},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Kotaku}%
+    }
+    \strng{namehash}{WL1}
+    \strng{fullhash}{WL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{title}{Place Bets On Computers Playing Fighting Games Against Each
+  Other}
+    \verb{url}
+    \verb https://kotaku.com/place-bets-on-computers-playing-fighting-games-aga
+    \verb inst-1148194469
+    \endverb
+    \field{journaltitle}{Kotaku}
+    \field{year}{2013}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{yan2016ranking}{article}{}
+    \name{author}{1}{}{%
+      {{hash=YT}{%
+         family={Yan},
+         familyi={Y\bibinitperiod},
+         given={Ting},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis}%
+    }
+    \strng{namehash}{YT1}
+    \strng{fullhash}{YT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{Y}
+    \field{sortinithash}{Y}
+    \field{number}{2}
+    \field{pages}{340\bibrangedash 353}
+    \field{title}{Ranking in the generalized Bradley--Terry models when the
+  strong connection condition fails}
+    \field{volume}{45}
+    \field{journaltitle}{Communications in Statistics-Theory and Methods}
+    \field{year}{2016}
   \endentry
 \enddatalist
 \endinput
