@@ -57,6 +57,7 @@
 \usepackage[backend=bibtex]{biblatex}
 \bibliography{references}
 \usepackage{cite}
+\usepackage{caption}
 
 %\usepackage[square,sort,comma,numbers]{natbib}
 \usepackage{url}
@@ -328,36 +329,80 @@ TODO:
 
 \subsection{Comparison Graph Definition}
 
-One key assumption when using Bradley-Terry models for paired comparisons is the data is in such a format the comparisons of interest can be estimated. In many cases when a paired-comparison model is employed, all items being compared have been compared to each other at least once and in each comparison at least one has been chosen over the other. If we consider professional sports as an example, each team typically plays most other teams at least once and some teams multiple times. This leads to many connections among a relatively small number of teams. The probability of the comparison graph being appropriate for modeling is high. However, within many college sports the number of teams is far larger than the number of matches any one team will play during a season. This leads to a much lower probability of the comparison graph of all college teams being connected. One efficient way to perform both diagnostic check snad validate these assumptions is through graph theory.
+One key assumption when using Bradley-Terry models for paired comparison modeling is the data is in such a format the comparisons of interest can be estimated. In many cases when a paired-comparison model is employed, all or most items being compared have been compared to each other at least once and in each comparison at least one has been chosen over the other. If we consider professional sports as an example, each team typically plays most other teams at least once and some teams multiple times. This leads to many connections among a comparitvely small number of teams. The probability of the dataset being appropriate for paired-comparison modeling is high. However, within many college sports the number of teams is far larger than the number of matches any one team will play during a season. This leads to a much lower probability of the dataset contains a sufficient number of games between teams to be appropriate for paired-comparison modeling. We can validate this assumptions through the use of Graph Theory. 
+A first principles view of graph theory is beyond the scope of this paper, but the author refers interested readers to Chartrand for a more detailed treatment\cite{chartrand_1985}. Graph Theory is the studies objects known as graphs which represent a generalized form of objects and relations. Graphs in this sense are not visualizations but a collection of ``nodes'' and ``edges''.  Nodes represent atomic items such as sports teams or choices where edges may represent matches between teams or preferences between choices. Edges represent the relationships between nodes. An intuitive example is that of a social network. Consider a group of people who each may or may not know each other. Each person would be represented as a node within this graph. We can places edges between nodes where there exists an aquiatence. 
 
-A first principles view of graph theory is beyond the scope of this paper, but the author refers interested readers to Chartrand \cite{chartrand_1985}. A graph is defined as a collection of nodes and edges. Nodes represent atomic items such as sports teams or choices where edges may represent matches between teams or preferences between choices. A graph can be an undirected or directed graph. In the case of an undirected graph, a single edge is placed between two nodes indicating a general relationship. Within an undirected graph, consider moving between two nodes whenever any edge connects them. A directed graph adds an additional layer for direction. For the purposes of this paper, a directed edge from between two nodes indicates the outcome of a match where the direction will extend from the winning node to the defeated node. A directed graph restricts movement between nodes to movements allowed by the directed edges. 
+A graph can be an undirected or directed graph. In the case of an undirected graph, a single edge is placed between two nodes indicating a general relationship. In the case of our social network example, an undirected graph would be appropriate. Within an undirected graph, we can visualize moving between two nodes whenever any edge connects them. A directed graph adds an additional layer of information for direction. For the purposes of this project, the nodes under consideration are characters which have played at least one match on SaltyBet. Each directed edge from between two characters indicates the outcome of a match where the direction will extend from the winning character to the defeated character. In the case of a directed graph, we can visualize movement between characters in the same way as an undirected graph, but our options are more restricted due to the additional layer of direction between characters.
 
-Formally, we will define a graph as an object consisting of two sets: nodes and edges. We will index the nodes as $1 \leq i < j \leq k$, where $k$ represents the number of nodes in the graph. We will refer to edges as $e_{i,j}$, where this represents the directed edge from $i$ to $j$ unless specified we are working in an undirected setting in which case $e_{i,j}$ and $e_{j.i}$ are interchangeable. We will define a \textbf{comparison graph} as the directed graph consisting of all characters as nodes and all matches played between each character as directed edges. Figure X shows a sample comparison graph. 
+The graph we have described represents a \textbf{comparison graph}. This graph defines all matches played between characters as directed edges and will be used to assess the necessary assumptions of connectivity for paired-comparison modeling. Figure X shows two examples of connected and disconnected directed comparison graphs.
 
-% TODO: Sample Comparison Graph
+% TODO: Show connected and disconnected comparison graph examples
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[t]{.45\textwidth}
+		\centering
+		\captionsetup{width=0.85\textwidth}
+		\includegraphics[scale=0.3]{../images/SampleConnectedGraph.png}
+		\caption{A sample comparison graph with a total of 7 nodes. This graph is strongly connected as there exists a path using directed edges between any two nodes in the graph.}
+		\label{fig:sub1}
+	\end{subfigure}%
+	\begin{subfigure}[t]{.45\textwidth}
+		\centering
+		\captionsetup{width=0.85\textwidth}
+		\includegraphics[scale=0.3]{../images/SampleDisconnectedGraph.png}
+		\caption{A sample comparison graph with a total of 7 nodes. This graph is entirely disconnected as there exists disjoint subsets of nodes which have no connections between them.}
+		\label{fig:sub2}
+	\end{subfigure}%
+	\label{fig}
+\end{figure}
 
 \subsection{Condition of Strong Connectivity}
 
-The original constraint for paired-comparison data to be suitable for analysis such that all comparisons can be estimated was formulated by Ford in 1957 \cite{ford_1957}. In graph theoretic terms, the condition can be equivalently stated as the comparison graph constructed from the data must be \textbf{strongly connected}. This condition necessitates that within a directed graph any node can be reached by starting at any other node in the graph and moving along directed edges. This is a stronger statement than simply saying a undirected graph be connected as the ``one-way streets'' formed by directed edges may not necessarily form a strongly connected graph. 
+The original constraint for paired-comparison data to be suitable for analysis such that all comparisons can be estimated was formulated by Ford in 1957 \cite{ford_1957}. This requirement originally stipulated that the comparison graph must be such that any node within the graph can be chosen and directed edges exists in such a way that movement along the existing edges admits a path to any other node in the graph. In graph theoretic terms, this condition is equivalent to \textbf{strong connectivity} or the comparison graph has the property of being \textbf{strongly connected}. It is important to note this is a stronger statement than an undirected graph being connected as the ``one-way streets'' formed by directed edges may not necessarily form a strongly connected graph. Figure Y shows an example of a directed graph which has an edge between all nodes but is not strongly connected. We will revisit the relationship between strong connectivity and undirected graphs shortly.
 
-In order to evaluate the feasibility of this constraint within a dataset of paired-comparisons, we can use well known algorithms to determine the connectivity of the comparison graph. Tarjan's Algorithm by Robert Tarjan is an efficient algorithm which runs in linear time and determines the number of strongly connected components within a graph \cite{tarjan_1971}. This algorithm can serve two purposes within the context of paired-comparison models. If the interest is in determining if the comparison graph is strongly connected, then the desired output from this algorithm is that the graph is constructed from one strongly connected component. However, in the event there exist more than one strongly-connected component within the graph (implying the entire graph is not strongly connected), the algorithm will return labels corresponding to a disjoint set of nodes which are strongly connected themselves. In this case, a paired-comparison model can be fit to each of the strongly connected components identified, but comparisons across the strongly connected components will be unavailable. An example of a strongly connected graph can be seen in Figure X while an example of a graph with multiple disjoint strongly connected components can be seen in Figure Ya. 
+In order to evaluate the satisfaction of this assumption within a dataset of comparisons, we can use well known algorithms to determine the connectivity of the comparison graph. Tarjan's Algorithm by Robert Tarjan is an efficient algorithm which runs in linear time with regard to the number of nodes within a graph and determines the number of strongly connected components within a graph \cite{tarjan_1971}. Strongly connected components of a graph are disjoint subsets of nodes which are independently strongly connected despite the graph as a whole not being strongly connected. This algorithm can serve two purposes within the context of paired-comparison models. If the interest is in determining if the comparison graph is strongly connected, then the desired output from this algorithm is that the graph is constructed from one strongly connected component. However, in the event there exist more than one strongly-connected component within the graph (implying the entire graph is not strongly connected), the algorithm will return labels corresponding to disjoint sets of nodes which are strongly connected. In this case, a paired-comparison model can be fit to each of the strongly connected components identified, but comparisons across the strongly connected components will be unavailable. Figure Ya shows an example of a graph containing two strongly connected components while figure Xa shows an example of a being strongly connected.
+
+\begin{figure}[!h]
+	\centering
+	\begin{subfigure}[t]{.45\textwidth}
+		\centering
+		\captionsetup{width=0.85\textwidth}
+		\includegraphics[scale=0.3]{../images/SampleWeaklyConnectedGraph.png}
+		\caption{A comparison graph with a total of 7 nodes. This graph is weakly connected as there does not exist a path along directed edges between all nodes in the graph. Figure Yb shows the undirected edge connectivity of the graph. }
+		\label{fig:sub1}
+	\end{subfigure}%
+	\begin{subfigure}[t]{.45\textwidth}
+		\centering
+		\captionsetup{width=0.85\textwidth}
+		\includegraphics[scale=0.3]{../images/SampleUndirectedWeaklyConnectedGraph.png}
+		\caption{A comparison graph with a total of 7 nodes. This graph is weakly connected as it is a transformation of the graph shown in Ya where each directional edge is replaced with a undirected or bidirectional edge. Using this transformation, there exists a path between any two nodes in the graph implying weak connectivity of the graph shown in Ya.}
+		\label{fig:sub2}
+	\end{subfigure}%
+	\label{fig}
+\end{figure}
 
 \subsection{Condition of Weak Connectivity}
 
-While strong connectivity of the comparison graph allows comparisons without modification, Yan (2014) discusses how using a singular pertubation method can allow for comparisons to be made when the graph is only \textbf{weakly connected.} Weakly connected graphs are directed graphs whereby if all directed edges are converted to undirected edges, the graph is connected or all nodes can be reached from any other node. Figure Yb shows an example of this situation in detail. In Figure Ya, we see the original directed graph with node A having only directed edges away from it. This can be known in other graph theoretic literature as a "source." However, if we remove the direction from each of the edges, we see in Figure Yb that the undirected version of this graph is connected. One intuitive reason for why weakly connected graphs are not sufficient without modification is that one team is undefeated and without an additional measure of "strength of win", the magnitude of how much the latent strength of this team differs from the next best team is unknown. 
+While strong connectivity of the comparison graph allows a paired-comparison model to be fit without issue, Yan (2014) discusses how using a singular pertubation method can allow for comparisons to be made when the graph is only \textbf{weakly connected.} Weakly connected graphs are directed graphs which, if transformed into an undirected graph and all directed edges are made undirected, the graph is connected (or all nodes can be reached from any other node). Figure Ya shows an example of a graph which is not strongly connected but is weakly connected. In Figure Ya, we see the original directed graph with node A having only directed edges away from it. However, if we remove the direction from each of the edges, we see in Figure Yb that the undirected version of this graph is connected. One intuitive reason for why weakly connected graphs are not sufficient without modification is that one team is undefeated and without an additional measure of "strength of win", the magnitude of how much the latent strength of this team differs from the next best team is unknown. Another intuitive reason is that node A in Figure Ya prevents the flow of information between strongly connected components. 
 
-The modification discussed by Yan is by adding a penalized term to the likelihood in such a way that a "pseudo-loss" to at least one other team is added to the comparison graph in order for the graph to become strongly connected.\cite{yan2016ranking} This term can be re-interpreted as a specific prior distribution to allow for the penalized term to exist within the likelihood. 
+The singular pertubation method discussed by Yan is equivalent to adding a penalized term to the likelihood in such a way that a "pseudo-loss" to at least one other team is added to the comparison graph in order for the graph to become strongly connected.\cite{yan2016ranking} This term can be re-interpreted as a specific prior distribution to allow for the penalized term to exist within the likelihood.
+
+% TODO: Discuss reformulation of likelihood
 
 \subsection{Simulation of Graph Connectivity}
 
-In the case of the data we are analyzing, we assume that two characters are randomly chosen to participate in a match. This is an assumption of the underlying structure of the data generating mechanism which is unavailable for us to view. Unfortunately, the problem of detecting ``densely'' connected clusters within a graph is computational challenging [CITE]. Instead, we will assume that of the 9,662 characters present, two characters are randomly chosen and then compared within a match. For our simulation, we will allow the order in which the characters are chosen to correspond to the direction of the edge between each character. While this does not account for the underlying strength of a character, it provides a general enough framework for an idea of connectivity within a specific graph size.
+It is useful to understand how likely a graph is to be connected given some properties (number of nodes, number of edges). Assessing the probability of a graph being connected is a difficult combinatorial problem to solve analytically. However, it is possible to simulate the connectedness of a graph. In the case of the data we are analyzing, we assume that two characters are randomly chosen to participate in a match. This is a strong assumption about the underlying strucfture of how characters are chosen for a given match Specifically, it is unclear if SaltyBet uses any heuristic beyond randomness to choose characters for each match. This could be analyzed by attempting to determine if there are clusters of nodes within the graph which have a higher connectivity to other nodes. Unfortunately, the problem of detecting ``densely'' connected clusters within a graph is computational challenging as well and is beyond the scope of this project [CITE]. Instead, we will assume that of the 9,662 characters present, two characters are randomly chosen and then compared within a match. For our simulation, we will allow the order in which the characters are chosen to correspond to the direction of the edge between each character with the first character being chosen denoted as the winner of the match. This equates to 50\% win rate for each character. While this does not account for the underlying strength of a character, it provides a general enough framework for an intuition to be formed around how many matches are needed to be strongly connected. 
 
-The simulation begins by generating 9,662 nodes and then randomly generating edges between them. The number of edges generated varies from 10,000 to 1,250,000 in steps of 500 with 50 simulated comparison graphs being generated at each step. We then apply Tarjan's Algorithm to determine the number of strongly connected components within each graph. In parallel to this experiment, we also measure the number of weakly connected components within each graph and iterate across the same graph properties as the previous experiment. The results of this simulation are shown in Figure Z and Table A below.
+The simulation begins by generating 9,662 nodes and then randomly generating edges between them. The number of edges generated varies from 10,000 to 1,250,000 in steps of 500 with 50 simulated comparison graphs being generated at each step. We then apply Tarjan's Algorithm to determine the number of strongly connected components within each graph. In parallel to this experiment, we also measure the number of weakly connected components within each graph simulated and plot this information simultaneously. The results of this simulation are shown in Figure Z and Table A below.
+
+The results of the simulation revealed that b
 
 % TODO: Simulation Results (Figure)
 % TODO: Simulation Results (Table)
 
 % TODO: Summarize Simulation Results
+% TODO: Mention code is available
 
 \section{Data Analysis}
 
