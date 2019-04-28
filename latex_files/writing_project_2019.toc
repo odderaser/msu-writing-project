@@ -2,54 +2,52 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1}Background \& Motivation}{3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.1}What is SaltyBet?}{3}% 
+\contentsline {subsection}{\numberline {1.1}What is SaltyBet?}{4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.2}Bayesian Methods}{6}% 
+\contentsline {subsection}{\numberline {1.2}Bayesian Methods}{8}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.2.1}A Natural Estimation of Variance}{6}% 
+\contentsline {subsubsection}{\numberline {1.2.1}A Natural Estimation of Variance}{8}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.2.2}A Natural Recursive Formula}{7}% 
+\contentsline {subsubsection}{\numberline {1.2.2}A Recursive Formula}{9}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.2.3}Natural Integration with Markov Decision Processes}{8}% 
+\contentsline {subsubsection}{\numberline {1.2.3}Integration with Markov decision processes}{10}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.3}Data Collection}{9}% 
+\contentsline {subsection}{\numberline {1.3}Structure of this Project}{11}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2}Models}{10}% 
+\contentsline {section}{\numberline {2}Models}{12}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1}Thurstone-Molster Model}{10}% 
+\contentsline {subsection}{\numberline {2.1}Basic Bradley-Terry Model}{13}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2}Bradley-Terry Model}{12}% 
+\contentsline {subsubsection}{\numberline {2.1.1}``Home-Field Advantage'' Model}{15}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.1}Original Bradley-Terry Model}{12}% 
+\contentsline {subsubsection}{\numberline {2.1.2}``Conditional Home-Field Advantage''}{17}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.2}``Home-Field Advantage'' Model}{13}% 
+\contentsline {subsection}{\numberline {2.2}Model Estimation}{18}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.3}``Conditional Home-Field Advantage''}{14}% 
+\contentsline {subsubsection}{\numberline {2.2.1}Maximum Likelihood Estimation}{18}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3}Model Estimation}{15}% 
+\contentsline {subsubsection}{\numberline {2.2.2}Minorization-Maximization Algorithms}{18}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.1}Maximum Likelihood Estimation}{15}% 
+\contentsline {subsubsection}{\numberline {2.2.3}Bayesian Estimation Methods}{19}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.2}Minorization-Maximization Algorithms}{15}% 
+\contentsline {section}{\numberline {3}Comparison Graph Connectivity}{20}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.3}Bayesian Estimation Methods}{16}% 
+\contentsline {subsection}{\numberline {3.1}Comparison Graph Definition}{20}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Comparison Graph Connectivity}{17}% 
+\contentsline {subsection}{\numberline {3.2}Condition of Strong Connectivity}{22}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1}Comparison Graph Definition}{17}% 
+\contentsline {subsection}{\numberline {3.3}Condition of Weak Connectivity}{24}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2}Condition of Strong Connectivity}{19}% 
+\contentsline {subsection}{\numberline {3.4}Simulation of Graph Connectivity}{26}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3}Condition of Weak Connectivity}{22}% 
+\contentsline {section}{\numberline {4}Data Analysis}{28}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4}Simulation of Graph Connectivity}{23}% 
+\contentsline {subsection}{\numberline {4.1}Data Collection}{28}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Data Analysis}{24}% 
+\contentsline {subsection}{\numberline {4.2}Data Cleaning}{29}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1}Data Cleaning}{24}% 
+\contentsline {subsection}{\numberline {4.3}Exploratory Data Analysis}{30}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2}Exploratory Data Analysis}{25}% 
+\contentsline {section}{\numberline {5}References - Left in for... reference}{32}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}References - Left in for... reference}{26}% 
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}Appendix-R Code}{29}% 
+\contentsline {section}{\numberline {6}Code Appendix}{36}% 

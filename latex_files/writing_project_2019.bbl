@@ -44,26 +44,46 @@
     \field{journaltitle}{Giant Bomb}
   \endentry
 
-  \entry{sbtwitter}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=BS}{%
-         family={Bet},
-         familyi={B\bibinitperiod},
-         given={Salty},
-         giveni={S\bibinitperiod},
+  \entry{capcom_history}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{CAPCOM | History}
+    \verb{url}
+    \verb http://www.capcom.co.jp/ir/english/company/history.html
+    \endverb
+    \field{journaltitle}{CAPCOM IR}
+  \endentry
+
+  \entry{chait_2004}{misc}{}
+    \name{author}{2}{}{%
+      {{hash=CPC}{%
+         family={Chait},
+         familyi={C\bibinitperiod},
+         given={Paul\bibnamedelima Campos},
+         giveni={P\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=J}{%
+         family={Jonathan},
+         familyi={J\bibinitperiod},
       }}%
     }
-    \strng{namehash}{BS1}
-    \strng{fullhash}{BS1}
+    \list{publisher}{1}{%
+      {The New York Times}%
+    }
+    \strng{namehash}{CPCJ1}
+    \strng{fullhash}{CPCJ1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{B}
-    \field{sortinithash}{B}
-    \field{title}{Salty Bet (@SaltyBet)}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{Sabermetrics for Football}
     \verb{url}
-    \verb https://twitter.com/saltybet
+    \verb https://www.nytimes.com/2004/12/12/magazine/sabermetrics-for-football
+    \verb .html
     \endverb
-    \field{year}{2018}
+    \field{journaltitle}{The New York Times}
+    \field{year}{2004}
     \warn{\item Invalid format of field 'month'}
   \endentry
 
@@ -72,12 +92,12 @@
       {{hash=CG}{%
          family={Chartrand},
          familyi={C\bibinitperiod},
-         given={G.},
+         given={Gary},
          giveni={G\bibinitperiod},
       }}%
     }
     \list{publisher}{1}{%
-      {Dover}%
+      {Dover Publications, Inc.}%
     }
     \strng{namehash}{CG1}
     \strng{fullhash}{CG1}
@@ -85,37 +105,8 @@
     \field{labeltitlesource}{title}
     \field{sortinit}{C}
     \field{sortinithash}{C}
-    \field{isbn}{9780486247755}
-    \field{series}{Dover Books on Mathematics Series}
-    \field{title}{Introductory Graph Theory}
-    \verb{url}
-    \verb https://books.google.com/books?id=rYuToT7vHbMC
-    \endverb
-    \field{year}{1977}
-  \endentry
-
-  \entry{mugenwiki}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=E}{%
-         family={ElecByte},
-         familyi={E\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{E1}
-    \strng{fullhash}{E1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{E}
-    \field{sortinithash}{E}
-    \field{title}{M.U.G.E.N. Beta Release README}
-    \verb{url}
-    \verb https://web.archive.org/web/20030806070618/http://mugen.elecbyte.com/
-    \verb docs/readme.txt
-    \endverb
-    \field{year}{2002}
-    \field{urlday}{23}
-    \field{urlmonth}{04}
-    \field{urlyear}{2019}
+    \field{title}{Introductory graph theory}
+    \field{year}{1985}
   \endentry
 
   \entry{ford_1957}{article}{}
@@ -127,22 +118,18 @@
          giveni={L\bibinitperiod\bibinitdelim R\bibinitperiod},
       }}%
     }
-    \list{publisher}{1}{%
-      {Mathematical Association of America}%
-    }
     \strng{namehash}{FLR1}
     \strng{fullhash}{FLR1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{sortinit}{F}
     \field{sortinithash}{F}
-    \field{issn}{00029890, 19300972}
-    \field{number}{8}
-    \field{pages}{28\bibrangedash 33}
-    \field{title}{Solution of a Ranking Problem from Binary Comparisons}
-    \verb{url}
-    \verb http://www.jstor.org/stable/2308513
+    \verb{doi}
+    \verb 10.2307/2308513
     \endverb
+    \field{number}{8}
+    \field{pages}{28}
+    \field{title}{Solution of a Ranking Problem from Binary Comparisons}
     \field{volume}{64}
     \field{journaltitle}{The American Mathematical Monthly}
     \field{year}{1957}
@@ -158,6 +145,28 @@
     \verb /
     \endverb
     \field{journaltitle}{Rock Paper Shotgun}
+  \endentry
+
+  \entry{hayes_2014}{book}{}
+    \name{author}{1}{}{%
+      {{hash=HMH}{%
+         family={Hayes},
+         familyi={H\bibinitperiod},
+         given={Monson\bibnamedelima H.},
+         giveni={M\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Wiley}%
+    }
+    \strng{namehash}{HMH1}
+    \strng{fullhash}{HMH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{Statistical Digital Signal Processing and Modeling}
+    \field{year}{2014}
   \endentry
 
   \entry{hilliard}{misc}{}
@@ -183,6 +192,59 @@
     \field{journaltitle}{Game Informer}
   \endentry
 
+  \entry{khuller2009finding}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=KS}{%
+         family={Khuller},
+         familyi={K\bibinitperiod},
+         given={Samir},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Saha},
+         familyi={S\bibinitperiod},
+         given={Barna},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{KSSB1}
+    \strng{fullhash}{KSSB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{booktitle}{International Colloquium on Automata, Languages, and
+  Programming}
+    \field{pages}{597\bibrangedash 608}
+    \field{title}{On finding dense subgraphs}
+    \field{year}{2009}
+  \endentry
+
+  \entry{kochenderfer_2015}{book}{}
+    \name{author}{1}{}{%
+      {{hash=KMJ}{%
+         family={Kochenderfer},
+         familyi={K\bibinitperiod},
+         given={Mykel\bibnamedelima J.},
+         giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {The MIT Press}%
+    }
+    \strng{namehash}{KMJ1}
+    \strng{fullhash}{KMJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{title}{Decision making under uncertainty: theory and application}
+    \field{year}{2015}
+  \endentry
+
   \entry{miller_2013}{misc}{}
     \name{author}{1}{}{%
       {{hash=MP}{%
@@ -204,6 +266,125 @@
     \verb reator-of-salty-bet/
     \endverb
     \field{journaltitle}{Shoryuken}
+    \field{year}{2013}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{mugenwiki}{misc}{}
+    \list{publisher}{1}{%
+      {Wikimedia Foundation}%
+    }
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{title}{M.U.G.E.N}
+    \verb{url}
+    \verb https://en.wikipedia.org/wiki/M.U.G.E.N
+    \endverb
+    \field{journaltitle}{Wikipedia}
+    \field{year}{2019}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{pollock}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=PDSG}{%
+         family={Pollock},
+         familyi={P\bibinitperiod},
+         given={D.\bibnamedelima S.\bibnamedelima G.},
+         giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim
+  G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PDSG1}
+    \strng{fullhash}{PDSG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{title}{Recursive Estimationand the Kalman Filter}
+    \verb{url}
+    \verb https://www.le.ac.uk/users/dsgp1/COURSES/MESOMET/ECMETXT/recurse.pdf
+    \endverb
+  \endentry
+
+  \entry{roundtable_2013}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=RS}{%
+         family={Roundtable},
+         familyi={R\bibinitperiod},
+         given={Sports},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Atlantic Media Company}%
+    }
+    \strng{namehash}{RS1}
+    \strng{fullhash}{RS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{The 'Moneyball' Effect: Are Sabermetrics Good for Sports?}
+    \verb{url}
+    \verb https://www.theatlantic.com/entertainment/archive/2011/09/the-moneyba
+    \verb ll-effect-are-sabermetrics-good-for-sports/244453/
+    \endverb
+    \field{journaltitle}{The Atlantic}
+    \field{year}{2013}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{rovell_2015}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=RD}{%
+         family={Rovell},
+         familyi={R\bibinitperiod},
+         given={Darren},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {ESPN Internet Ventures}%
+    }
+    \strng{namehash}{RD1}
+    \strng{fullhash}{RD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{Class action lawsuit filed against DraftKings and FanDuel}
+    \verb{url}
+    \verb http://www.espn.com/chalk/story/_/id/13840184/class-action-lawsuit-ac
+    \verb cuses-draftkings-fanduel-negligence-fraud-false-advertising
+    \endverb
+    \field{journaltitle}{ESPN}
+    \field{year}{2015}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{sbtwitter}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=S}{%
+         family={SaltyBet},
+         familyi={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Twitter}%
+    }
+    \strng{namehash}{S1}
+    \strng{fullhash}{S1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{Salty Bet (@SaltyBet)}
+    \verb{url}
+    \verb https://twitter.com/saltybet
+    \endverb
+    \field{journaltitle}{Twitter}
     \field{year}{2013}
     \warn{\item Invalid format of field 'month'}
   \endentry
@@ -237,8 +418,8 @@
          familyi={S\bibinitperiod},
       }}%
     }
-    \strng{namehash}{S1}
-    \strng{fullhash}{S1}
+    \strng{namehash}{S2}
+    \strng{fullhash}{S2}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{sortinit}{S}
@@ -257,7 +438,7 @@
       {{hash=TR}{%
          family={Tarjan},
          familyi={T\bibinitperiod},
-         given={R.},
+         given={Robert},
          giveni={R\bibinitperiod},
       }}%
     }
@@ -268,20 +449,12 @@
     \field{sortinit}{T}
     \field{sortinithash}{T}
     \verb{doi}
-    \verb 10.1137/0201010
+    \verb 10.1109/swat.1971.10
     \endverb
-    \verb{eprint}
-    \verb https://doi.org/10.1137/0201010
-    \endverb
-    \field{number}{2}
-    \field{pages}{146\bibrangedash 160}
-    \field{title}{Depth-First Search and Linear Graph Algorithms}
-    \verb{url}
-    \verb https://doi.org/10.1137/0201010
-    \endverb
-    \field{volume}{1}
-    \field{journaltitle}{SIAM Journal on Computing}
-    \field{year}{1972}
+    \field{title}{Depth-first search and linear graph algorithms}
+    \field{journaltitle}{12th Annual Symposium on Switching and Automata Theory
+  (swat 1971)}
+    \field{year}{1971}
   \endentry
 
   \entry{sullygnome}{misc}{}
@@ -389,6 +562,40 @@
     \field{volume}{45}
     \field{journaltitle}{Communications in Statistics-Theory and Methods}
     \field{year}{2016}
+  \endentry
+
+  \entry{yao_1999}{article}{}
+    \name{author}{2}{}{%
+      {{hash=YG}{%
+         family={Yao},
+         familyi={Y\bibinitperiod},
+         given={Grace},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=BU}{%
+         family={Böckenholt},
+         familyi={B\bibinitperiod},
+         given={Ulf},
+         giveni={U\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{YGBU1}
+    \strng{fullhash}{YGBU1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{Y}
+    \field{sortinithash}{Y}
+    \verb{doi}
+    \verb 10.1348/000711099158973
+    \endverb
+    \field{number}{1}
+    \field{pages}{79–92}
+    \field{title}{Bayesian estimation of Thurstonian ranking models based on
+  the Gibbs sampler}
+    \field{volume}{52}
+    \field{journaltitle}{British Journal of Mathematical and Statistical
+  Psychology}
+    \field{year}{1999}
   \endentry
 \enddatalist
 \endinput

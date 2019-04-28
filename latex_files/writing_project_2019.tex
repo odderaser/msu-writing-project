@@ -78,18 +78,18 @@
 	% Enter title here
 	\begin{center}
 		{\LARGE\bf My title...} \vspace{.1in}
-		
+
 		%{\LARGE\bf } \vspace{.1in}  \\
-		
+
 		%{\LARGE\bf } \vspace{.1in}  \\
-		
+
 		%{\LARGE\bf } \vspace{.1in}  \\
-		
+
 		%{\LARGE\bf } \vspace{.1in}  \\
-		
+
 		%{\LARGE\bf } \vspace{.1in}  \\
-		
-		
+
+
 		\vspace{.05in}
 		{\LARGE\bf $\;$} \\ [.5in]
 		{\Large  Jordan R. Love \\
@@ -154,9 +154,13 @@ Abstract goes here.
 
 \section{Background \& Motivation}
 
+As many organizations across a wide variety of fields begin to leverage larger amounts of data to understand and optimize their underlying processes, the role of statistical modeling becomes increasingly predictive and prescriptive, especially in professional sports. While the prediction of the outcomes of sports has always existed, more statistical approaches have only recently become more popular with the increased use of data in many sports. The rise of sabremetrics in baseball has acted as a catalyst for many other sports to begin accepting data-driven prediction and prescription \cite{chait_2004, roundtable_2013}. Sports betting alone has become a large political issue as large online fantasy sports sites such as DraftKings and FunDuel gained popularity \cite{rovell_2015}. Sports betting will remain a contentious issue for many states within the foreseeable futures, but the use of statistical models to enable and enhance these predictions will only increase. While this project does not focus on any professional sports league prediction or serious applications to betting, it does focus on a similar toy problem in order to learn more about the models and tools used in these areas.
+
+The motivation for this project has three key aspects. The first is to learn about paired-comparison models and how they are used. paired-comparison models are employed to model the latent strength of either preferences within customers or performances of sports teams. The second aspect of this project is to explore the assumptions of connectivity required of the dataset. These requirements will be formulated in the language of graph theory to construct a comparison graph of the players within the dataset and matches played between them. Algorithms which can be used as a diagnostic for paired-comparison datasets are discussed, and a simulation related to the dataset analyzed in this project is summarized. The final motivating factor is to use models which integrate with existing decision optimization methods such as Markov decision processes. These will be described in more detail shortly. We will begin by describing the source of the dataset for this project: SaltyBet.
+
 \subsection{What is SaltyBet?}
 
-SaltyBet is an online, 24/7 nonstop, A.I. driven street fighter game where viewers are given fake ``Salty Bucks'' to bet on their favorite characters. \cite{kotaku} SaltyBet is hosted on Twitch, a popular video game streaming website where users can stream and commentate while they play. SaltyBet was one of many to creatively use the stream to foster more viewer engagement. Most notably, the popular "Twitch Plays Pokemon" stream cites as an inspirational source for a non-standard format. \cite{hilliard} While an official launch date for SaltyBet is not currently known, it has been running since at least April 26th, 2013 based on the companion twitter account. \cite{sbtwitter} Since then, the twitch stream has maintained a fairly consistent average of 400 users over the past year as reported by SullyGnome, a third-party twitch statistics. \cite{sullygnome} A typical screen during a match is shown in Figure 1.
+SaltyBet is an online, nonstop, ``Street Fighter'' game where A.I. driven characters fight against each other and human viewers are given fake ``Salty Bucks'' to bet on the outcome of each match \cite{kotaku}. SaltyBet is hosted on the Twitch platform, a popular video game streaming website where users can stream and commentate in real-time. SaltyBet was among the first to creatively use the platform to provide a unique viewer experience by making the entire stream automated. It has served as a forerunner in this style of stream automation with the even more popular stream ``Twitch Plays Pokemon'', citing SaltyBet as an inspiration \cite{hilliard}. An official launch date for SaltyBet cannot be verified. However, it has been running since at least April 26th, 2013 based on its accompanying Twitter account which tweets important match outcomes \cite{sbtwitter}. Since its inception, the Twitch stream has maintained a fairly consistent average of 400 users over the past year as reported by SullyGnome, a third-party Twitch platform statistics website. \cite{sullygnome}. A typical screen during a live match on SaltyBet.com is shown in Figure 1.
 
 \begin{figure}[!h]
 	    \centering
@@ -165,9 +169,9 @@ SaltyBet is an online, 24/7 nonstop, A.I. driven street fighter game where viewe
             \label{fig:my_label}
 \end{figure}
 
-Shortly after its inception, SaltyBet added a premium feature which allowed users to access all previous match data. This spawned the creation of many viewers opting to scrape and then use this data to build bots which automatically bet on characters. \cite{explosionduck, giantbomb} These bots consist of many different types of algorithms. One of the more popular bots applies a genetic algorithm to determine which character within a match will win. \cite{saltbot} Among the bots programmed to predict winners, none found apply a probabilistic approach to modeling characters latent ranking or incorporate immutable features of each character. 
+Shortly after its inception, SaltyBet added a premium feature which allowed users to access all previous match data. This spawned the creation of many viewers opting to scrape and then use this data to build bots which automatically bet on match outcomes \cite{explosionduck, giantbomb}. These bots consist of many different types of algorithms. One of the more popular bots applies a genetic algorithm to rank and then predict the outcome of each match \cite{saltbot}. Among the bots reviewed for this project, none were found to apply a probabilistic approach to modeling each character's latent strength or incorporate other features of each character.
 
-Each character consists of several features or traits which define the performance of the character. SaltyBet operates off of the MUGEN engine which was developed by ``elecbyte'' in early 2002. \cite{mugenwiki} This engine clones the basic features of classic Street Fighter series of games originally developed by Capcom. The engine also comes with specifications in order to create customer characters. Since then, a large number of characters have been created by users to use and compete within the MUGEN engine. SaltyBet itself employs 5,777 unique characters during its matches. Each character must consist of a set of images which define the characters movement and moveset. A moveset describes all of the actions and motions a character can make to attack another character. The image used to define a character defines its hitbox: the area on the screen where a character can receive damage. Several example characters are shown in Figure 2. Notice specifically the large discrepancy in hitbox size between many of the characters. Each character is also equipped with an AI script which defines how the character will attack and respond to other attacks. Finally, there are numeric values describing the attack strength, health, and meter (a measure of accessiblity to highly performant attacks) associated with each character. Within the SaltyBet community, there is a large amount of anecdotal evidence indicating hitbox advantage can be highly predictive of match outcomes. \cite{gamezone_2017} 
+Within SaltyBet, each character consists of several features or traits which define the performance of the character. SaltyBet itself operates off of the MUGEN engine which was developed by ``elecbyte'' in early 2002 \cite{mugenwiki}. This engine clones the basic features of the classic Street Fighter series of games original developed by Capcom beginning in 1987 \cite{capcom_history}. The engine is designed with specifications to allow anyone to create custom characters. Since MUGEN's launch, a large number of characters have been created by the surrounding community. Of these created characters, 9,662 have fought at least one match on SaltyBet.com. The definition of each character must consist of a set of images which define the characters movement or ``moveset.'' A moveset describes all of the actions and motions a character can make to attack another character. The image used to define a character also defines its ``hitbox'': the area on the screen where a character can receive damage from other characters. Two example characters are shown in Figure 2. Notice specifically the large discrepancy in the hitbox height between the characters. Each character is also equipped with an AI script which defines how the character will attack and respond to other attacks. Finally, there are numeric values describing the attack strength, health, and meter (a measure of accessibility to highly effective attacks) associated with each character. Within the SaltyBet community, there exists a large number of hypotheses indicating discrepancies in the size of each character's hitbox can be predictive of match outcomes \cite{gamezone_2017}. An example of a hitbox discrepancy is shown in Figure 1. Generally, the character with the smaller hitbox (Figure 1b) has the advantage against the character with a large hitbox (Figure 1a). This is due to most attacks from the character shown in Figure 1a reaching over the hitbox of the character shown in Figure 1b while the opposite is not true. One goal of this project is to examine this ``hitbox advantage'' hypothesis in detail.
 
 \begin{figure}[!h]
 	\centering
@@ -183,116 +187,118 @@ Each character consists of several features or traits which define the performan
 		\caption{18 x 18 pixel hitbox}
 		\label{fig:sub2}
 	\end{subfigure}
+  \caption{Example characters with their hitbox sizes listed as the number of pixels required to form the bounding rectangle}\label{fig:hitboxes}
 \end{figure}
 
 
 \subsection{Bayesian Methods}
 
-The goal of this paper is to develop a probabilistic framework for evaluating the latent strength of characters and include additional information about the characters to improve predictive accuracy. Specifically, a focus will be given to identifying hitbox disparities between characters through this model to determine if this is a substantial predictor and at what level of the disparity does it arise. To do this, we will perform a brief review of Paired-Comaprison (PC) Models and extensions for modeling additional information. 
+In order to address the ``hitbox advantage'' hypothesis described previously, it is necessary to develop a probabilistic framework for evaluating the latent strength of characters and include additional information about the characters within the model. To do this, we will  use paired-comparison models. Specifically, a focus will be given to identifying hitbox advantages between characters through this model and determine at what level of hitbox differential advantages begin to arise. To do this, we will perform a brief review of paired-comparison Models and extensions for modeling additional information between characters.
 
-It is of interest in this project to employ a Bayesian framework for a number of reasons. Bayesian methods often have large computational cost depending on this complexity of the model, but there are also many advantages. The advantages relevant to this project are 1. a natural estimation of variance, 2. a natural recursive formula for online estimation, and 3. a natural integration into a Markov Decision Process. 
+It is of interest in this project to employ a Bayesian framework for a number of reasons. Bayesian methods often have large computational costs depending on the complexity of the model; however, there are also many advantages. The advantages relevant to this project are a natural estimation of variance, a recursive formula for online estimation, and integration in Markov decision processes.
 
 \subsubsection{A Natural Estimation of Variance}
 
-While it is beyond the scope of this project to detail the differences between Frequentist and Bayesian methods, we will discuss specifically the advantage of estimation of variability. One of the primary differences between Bayesian and Frequentist methods is that the parameter under estimation is assumed to be random as opposed to fixed. This admits the workflow of a Bayesian modeling problem to be interpretted, through use of Bayes' rule, in terms of probability distribtuions throughout. While not always trivial to obtain the resulting posterior distribution of a parameter within a complex model, all information surrounding the parameter is contained within the samples of the posterior distribution. This includes variability which is simply a transformation of the samples of the posterior distribution.
+While it is beyond the scope of this project to detail the differences between frequentist and Bayesian methods, we will discuss specifically the advantage of estimation of variability. By natural estimation of variance, we are primarily referring to the lack of the need to apply higher order approximations (i.e. the Delta Rule) to compute variance of a transformation of random variables being modeled. One of the primary differences between Bayesian and frequentist methods is that the parameter under estimation is assumed to be random as opposed to fixed. Hence, a Bayesian modeling problem to can be interpreted, through use of Bayes' rule, in terms of probability distributions throughout. While not always trivial to obtain the resulting posterior distribution of a parameter within a complex model, all uncertainty for the parameter is contained within the samples of the posterior distribution. This includes variability which is a summary of the samples of the posterior distribution.
 
-Within this and similar contexts, the interest is not only in predicting a point estimate describing which characteror sports team is estimated to be most likely to win but also quantifying our uncertainty around the estimate. This is not unlike financial markets where we are not only concered with the overall performance but also the potential risk for large swings within the data. Since one of the ideal applications of this model would be to form a "trading strategy", Bayesian modeling allows access to all necessary information to make an informed decision.
+Within this and similar contexts, the interest is not only in predicting a point estimate describing which character or sports team is estimated to be most likely to win, but also quantifying our uncertainty around the estimate. This is not unlike financial markets where we are not only concerned with the overall performance but also the potential risk for large swings within the market due to uncertainty. Since one of the ideal applications of this model would be to form a ``trading strategy'', Bayesian modeling allows access to all necessary information to make an informed decision.
 
-\subsubsection{A Natural Recursive Formula}
+\subsubsection{A Recursive Formula}
 
-Another advantage of Bayesian modeling is the natural recursive formula which can be formed by using the posteriors estimated at time $t-1$ as the prior distributions at time $t$. Many other statistical and machine learning techniques do allow this recursive estimation procedure to be implemented easily. Most notably, Recursive Least Squares, an estimation technique found commonly in Signal Processing possesses a similar framework. [CITE] However, as with many other estimation techniques, Bayesian methods typically encompass a larger class of estimation procedures with specific prior choices being commonly known in literature (Regularized Least Squares, LASSO) [CITE]. This is no different for Recursive Least Squares with D.S.G. Pollock describing the relationship from a bayesian perspective. [CITE]
+Another advantage of Bayesian modeling is the recursive formula which can be formed by using the posteriors estimated at time $t-1$ as the prior distributions at time $t$. Many other statistical and machine learning techniques do allow this recursive estimation procedure to be implemented. Most notably, recursive least squares, an estimation technique found commonly in signal processing possesses a similar framework \cite{hayes_2014}. However, as with many other estimation techniques, Bayesian methods typically encompass a larger class of estimation procedures with specific prior choices being commonly known in literature simply as penalized methods (Regularized Least Squares, LASSO). Using Bayesian methods directly allows the penalization to come in the form of a prior distribution as opposed to a single term on the entire likelihood function. This is no different for recursive least squares with D.S.G. Pollock describing the relationship from a Bayesian perspective \cite{pollock}.
 
-\subsubsection{Natural Integration with Markov Decision Processes}
+\subsubsection{Integration with Markov decision processes}
 
-Markov Decision Processes (MDPs) are a formulation of the problem of the optimally moving around a space given some set of actions and known rewards. This optimization problem is often intractable to specify aprior due to the unknown rewards associated with each action and lack of observability of the entire system. This leads to a class of MDPs known as Partially Observable Markov Decision Processes (POMDPs) where the estimation of the current state of the system and optimal policy are estimated simultaneously. POMDPs are notoriously difficult to solve optimally, but the framework allows for many numerical approximation methods to be applied. This framework can be seen in many contexts such as Air Traffic Control, Surveliance, and Robotics. \cite{ }.
+Markov decision processes (MDPs) are a formulation of the problem of the optimally moving around a space given some set of actions and known rewards. This optimization problem is often intractable to specify a priori due to the unknown rewards associated with each action and lack of observability of the entire system. This leads to a class of MDPs known as Partially Observable Markov decision processes (POMDPs) where the estimation of the current state of the system and optimal policy are estimated simultaneously. POMDPs are notoriously difficult to solve optimally, but the framework allows for many numerical methods to be applied for approximate optimal solutions to be found. This framework can be seen in many contexts such as air traffic control, surveillance, and robotics \cite{kochenderfer_2015}.
 
-Since MDPs and POMDPs are both built first mathematically on the theory of probability, Bayesian modeling provides a seamless integration into these methods for two reasons. These two methods have already been described in previous advantages. The first is that we have a natural interpretation of variability in the language of probability constructed directly into our estimation procecure, the second is that the goal of both MDPs and POMDPs is typically not to make a single decision but to make multiple decisions over time. This allows the natural recursiveness of bayesian methods again to seamlessly integrate with this method. For this reason, Bayesian methods are often the de-facto estimation procedures when dealing with these problems.
+Since MDPs and POMDPs are both built on the theory of probability, Bayesian modeling provides a seamless integration into these methods for two reasons. The first is that we have a natural interpretation of variability in the language of probability constructed directly into our estimation procedure. The second is that the goal of both MDPs and POMDPs is typically not to make a single decision but to make multiple decisions over time. This allows the recursiveness of Bayesian methods again to seamlessly integrate with this process. For this reason, Bayesian methods are often the de-facto estimation procedures when dealing with these problems.
 
-While implementing a POMDP is beyond the scope of this project, this framework was an important deciding factor in what model to choose to use as a natural extension from estimating the latent strength of characters and predicting outcomes is to operatialize and optimize both which bets to make and how much to bet based on the information available.
+While implementing a POMDP is beyond the scope of this project, this framework was an important deciding factor in what model to choose to use as a natural extension from this project is to operationalize and optimize both which bets to make and how much to bet based on the information available.
 
-TODO: Need lots of citations.
+\subsection{Structure of this Project}
 
-\subsection{Data Collection}
-
-For this project, historic matches were scraped from the SaltyBet website through the premium functionality provided. There were a total of TODO: X matches between Y characters. The scraping script was written using Python and the Selenium module [X], the code appendix contains code for scraping each match and character. Due to the restrictions placed on the number of server calls each user can make to the SaltyBet server per hour, scraping for the entire dataset took approximately TODO: Z days. Once scraped, the data were formatted and into a PostgreSQL database. 
-
-Within saltybet, characters are divided into five distinct tiers: X, S, A, B, and P. These tiers are assigned based on the performance of each character previously. Characters are promoted or demoted based on their performance directly after a match. There are three distinct types of matches: Matchmaking, Tournament, and Exhibition. The matchmaking mode algorithmically chooses players to match up against each other where the odds are approximately equal of each character winning. Tournament mode is a random set of 16 characters from a specific tier who fight each other in a single-elimination tournament. Finally, exhibition mode is a set of viewer-requested matches which also allows teams of characters to compete. Exhibition mode games are typically chosen by viewers to force edge-case behavior of the characters. Many times, viewer requested matches result in a server crash due to intense computational loads.
-
-% TODO: Insert Table Describing Which Characters are in Which Tier
-% TODO: Describe how characters can move tiers
-% TODO: 
-
-Characters were web-scraped individually and stored with the following information: Author, Life, Meter, Hitbox Width, and Hitbox Height. The scraping process for characters was similar to the process for scraping match data and the code appendix contains a modified script for character data scraping. Of all the characters scraped, TODO: X had no image associated with their profile. For the purpose of this project, we excluded these characters. The number of matches affected by this removal is TODO: Z. Figure 2 showed an example of differing hitboxes, but 
-
-% TODO: Discuss Hitbox Evidence
-% TODO: Discuss Unnecessity of Time Varying Attributes
-% TODO: Discuss Relationship to ELO
-% TODO: Discuss other Data Cleaning Issues
+This paper is divided into four primary sections. The first section describes the literature surrounding the Bradley-Terry variant of paired-comparison models. Separate sections describe various estimation techniques including maximum likelihood estimation and Bayesian estimation. The second primary section discusses the assumption of connectivity within paired-comparison models. In this section, we describe algorithms for determining if a dataset is sufficiently connected and what options are available if this assumption is not satisfied. In this section, we perform a graph-based simulation to determine the probability of connectivity within the dataset being analyzed in this project. In the third primary section, we perform three separate analyses using methods discussed in the model section and discuss their differences. We also describe all data collection procedures, data cleaning steps, and the results of the prediction of each of the three models fit on 500 additional matches. Finally, the concluding section concisely describes the results of the analysis and what future work may be performed to further the work of this project.
 
 \section{Models}
 
-\subsection{Thurstone-Molster Model}
+paired-comparison models were introduced formally in a statistical setting by Thurstone in 1927 \cite{thurstone_1927}. This paper introduced the ``Law of Comparative Judgement'' which is used in Psychometrics to measure test subject preferences. This was the first paired-comparison model formulated. The more developed model which we will focus on in this paper was first developed by Bradley and Terry in 1952 \cite{bradley_terry_1952}. The goal of a paired-comparison model is to model the probability of one item being chosen over another or the probability of one sports team defeating another. The quantities being estimated are latent preferences or strengths. The general goal of any paired-comparison model is to estimate parameters such that a model of the following form may be fit:
 
-The goal of Paired-Comaprison (PC) Models are to quantify the probability of a subject choosing one option over another or, in sports, one team winning over another. Each PC model has some formulation of the latent "ranking" either of strength of team or underlying preference. The general form of a PC model has the form of equation 1. In this case, $f(x)$ represents a transformation of the structure of the latent strength.
+\[ P(A > B) = f(x) \]
 
-\[ P(A > B) = f(x)\]
+Where $f(x)$ represents the paired-comparison model. In this project, we will focus on the Bradley-Terry formulation of paired-comparison models and discuss two additional variants beyond the basic model which allow for more information to be included within the model.
 
-One of the first models to address these issues was the Thurstone-Molster model. In this model, the underlying strength or preference is modeled as a normal distribution. Thurstone and Mollster derived several simplifications of this model to ease computation. One of the most computational simple choices is Case V of the Thurstone and Mollster Model. In this model, variances are assumed to be equal and and the strength of each character is assumed to be independent of one another. Use of the normal distribution allows for us to derive a theoretically simple equation for the paired comparison.
+\subsection{Basic Bradley-Terry Model}
 
-\[ A \sim N(\mu_a, \sigma_a), B \sim N(\mu_b, \sigma_b) \]
+As previously described, paired-comparison models are interested in estimating the probability $P(A > B)$ where $A$ and $B$ are items or teams under comparison. The Bradley-Terry paired-comparison model formulates this problem in the following way:
 
-\[ P(A > B) = P(A - B > 0)\\
-            = A - B \sim N(\mu_a - \mu_b, \sigma_a + \sigma_b)\\
-            = \int_0^{\infty} \]
-            
-% TODO: Finish error function derivation
-% TODO: Number Equations Intelligently
+\[ P(i > j) = \frac{\lambda_i}{\lambda_i + \lambda_j} \]
 
-Equation 5 shows that in order to compute the probability of interest with these underlying assumptions, we must compute the "error" function. This function is well known in probability and statistics, but no closed form solution exists. As this method was developed during a time when computational intensive operations were more expensive, an alternative was required for efficient use a paired-comparison model. For those interested, a Gibbs Sampling approach to the Thurstone-Molster model is described in Yao. [CITE]
+We have altered the indices from $A$ and $B$ to $i$ and $j$, respectively, to match the prevailing literature. This model similar to a logistic regression model. In fact, under the transformation $\lambda_i = \exp{\pi_i}$, we obtain a function similar in form to a logistic regression. In fact, if the logit is taken of each side, a Bradley-Terry model can be interpreted as estimating contrasts between the estimated latent strength of the items being compared. This is the approach taken by Agresti which we will return to shortly. Using this formulation, we can derive the likelihood and log-likelihood functions for the Bradley-Terry model.
 
-% TODO: Insert Reference for Yao
+\begin{equation} \label{eq1}
+\begin{split}
+L(\lambda_i) & = \prod_{i=1}^{m}\prod_{j=1}^{m} P(i > j) \\
+ & = \prod_{i=1}^{m}\prod_{j=1}^{m} \bigg(\frac{\lambda_i}{\lambda_i + \lambda_j}\bigg)^{w_{ij}}\bigg)
+\end{split}
+\end{equation}
 
-\subsection{Bradley-Terry Model}
+TODO: Add bottom statement of $i \neq j$
 
-\subsubsection{Original Bradley-Terry Model}
+Note that $w_{ij}$ represents the number of times $i$ has defeated or been chosen over $j$ and $m$ represents the total number of items. To derive the log-likelihood, first note the following useful definitions. First, we will define the total number of comparisons between $i$ and $j$ as $n_{ij}$ such that $n_{ij} = w_{ij} + w{ji}$ and that $n_{ij} = n_{ji}$. Therefore, we have the following:
 
-% TODO: Cite Bradley-Terry original paper and when it was created.
+\begin{equation} \label{eq1}
+\begin{split}
+\text{ln}L(\lambda_i) & = \sum_{i=1}^{m}\sum_{j=1}^{m} \text{ln}\bigg(\frac{\lambda_i}{\lambda_i + \lambda_j}\bigg)^{w_{ij}}\bigg) \\
+& = \sum_{i=1}^{m}\sum_{j=1}^{m} w_{ij}\text{ln}(\lambda_i) - w_{ij}\text{ln}(\lambda_i + \lambda_j) \\
+& = \sum_{i=1}^{m} -n_{ij}\text{ln}(\lambda_i + \lambda_j) + \sum_{j=1}^{m} w_{ij} \text{ln}(\lambda_i)
+\end{split}
+\end{equation}
 
-The next development within Paired-Comparison Models was the Bradley-Terry model developed by TODO:. This model changed the underlying strength or preference distribution to be distributed as a Gumbel or Extreme Value Distribution. Using this assumption, a concise result is obtained through an similar process for the Thurstone-Mollster model. Using the CDF method to compute the difference between the two Gumbel distributions:
-
-\[ P(A > B) = P(A - B > 0)\\
-            = A - B \sim Logistic(\mu_a - \mu_b, \beta)
-            = TODO: \]
-            
-% TODO: Finish Logistic Function Derivation
-
-This reduces to a convient logistic function which can be evaluated more quickly than the required error function evaluation of the Thurstone-Mollster model. While these models make differing assumptions regarding the underlying strength or preference distribution, the results are neglible [TODO: Reference from Glickman]. Figure 3 shows a comparison of shapes of the CDFs. The logistic distibution has slightly longer tails than the normal distribution and is more sloped at zero than the normal distribution. For the purposes of this paper, we will focus on the Bradley-Terry formulation of the Paired-Comparison model.
-
-Often, a simplification is made to equation 2 in order to make the probability more interpretable. If we assume that the score function $e^{\mu_a} = \lambda_a$, then we can re-write the probability statement in a more succinct form. Equation 3 can now be interpretted as the fraction of strength competitor $A$ consists of compared to the estimated combined strengths of competitors $A$ and $B$. 
-
-\[ P(A > B) = \frac{\lambda_a}{\lambda_a + \lambda_b} \]
-
-% TODO: Name this equation
+Using this model has several key assumptions. First, the outcomes are binary wins and losses or distinct choices between two options. There does exist modifications to Bradley-Terry models which permit ties, but those models will not be covered in this project. The interested read should see TODO: BT TIES for more detail regarding this variant of the model. \cite{TODO} The second key assumption is that latent strengths do not change over time. For some sports modeling scenarios, this may or amy not be realistic. For SaltyBet, the characters participating are not adjusted once they have been added to the database. Therefore, this assumption has been met. One additional assumption is that there exists a suffucient number of connections within the dataset to estimate the comparisons of interest. This is covered in detail in Section 3 of this paper. Finally, we also assume for this model that no external factors affect the outcome besides the latent strengths being estimated. This may not always be the case as environmental factors may play a role in the outcome of choices or sports matches. This issue leads us to our next model variant.
 
 \subsubsection{``Home-Field Advantage'' Model}
+
+The ``home-field advantage'' variant of Bradley-Terry modls was originally developed by Agresti in his well-known text, Categorical Data Analysis. TODO: Cite. As we mentioned previously, it is possible to view Bradley-Terry models as a specific formulation of logistic regression. It was in this context Agresti originally developed the additional effect to include a ``home-field advantage'' term in the model. This effect alters the probability statement of itnerest to a conditional statement depending on which team is currently playing at home. This effect can also be used to denote which character has a hitbox advantage by denoting the smaller hitbox character as having an ``advantage''. We will revisit the analysis of the dataset for this project using this formulation in Section 4. The altered probability statement is shown below.
 
 Agresti in his 1990 \textem{Categorical Data Analysis} included a modification to the original Bradley-terry model to include a ``home-field advantage'' effect. This effect is well-known in many sports as playing a role in the probability that a team will win. The effect works be introducing a constant term $\theta$ which acts as multiplier which captures the effect of the ``home-field advantage''. The resulting probability statement of interest is shown in equation 4. The multiplier is attached to the estimated latent strength of whichever team is currently playing at home and can be reversed easily depending on which direction probability we are interested in.
 
 %TODO: Name this equation // Include actual function
 
-\[f(x) = \left\{
+\[P(i > j) = \left\{
     \begin{array}{lr}
-    x^2 & : x < 0\\
-		          x^3 & : x \ge 0
+    \frac{\theta\lambda_i}{\theta\lambda_i + \lambda_j} & : \text{if } i \text{ has the advantage}\\
+		          \frac{\lambda_i}{\lambda_i + \theta\lambda_j} & : \text{if } j \text{ has the advantage}
 			    \end{array}
 			    \right.
 			    \]
 
-Within our project, we will use this model to estimate hitbox advantages. Specifically, we provide a hitbox advantage indicator to the character with the lower hitbox height of the two characters currently playing. Within this model, there is no simple way to account for hitboxes of the same height. Another potential issue is that we may not observe a hitbox advantages for small differences in hitbox heights. To account for the previous two issues, we introduce a third model which has been developed before.
+We can construct a likelihood function using a process similar to the basic model. Note that in this scenario, we will differentiate between wins made by $i$ against $j$ into those wins with an advantage as $w_{ij}^{+}$ and those made without an advantage as $w_{ij}^{-}$. Therefore, the likelihood function for this case becomes:
+
+\begin{equation} \label{eq1}
+\begin{split}
+L(\lambda_i) & = \prod_{i=1}^{m}\prod_{j=1}^{m} P(i > j) \\
+ & = \prod_{i=1}^{m}\prod_{j=1}^{m} \bigg(\frac{\theta\lambda_i}{\theta\lambda_i + \lambda_j}\bigg)^{w_{ij}^{+}}\bigg(\frac{\lambda_i}{\lambda_i + \theta\lambda_j}\bigg)^{w_{ij}^{-}}\bigg)
+\end{split}
+\end{equation}
+
+In this case, we will make two additional defitions. First, that $w_i$ will represent the number of matches won by $i$ either advantaged or disadvantaged. We will also define $n^{+}$ as the total number of games won with an advantage. Using these definitions, we can derive a simplified log-likelihood expression.
+
+\begin{equation} \label{eq1}
+\begin{split}
+\text{ln}L(\lambda_i) & = \sum_{i=1}^{m}\sum_{j=1}^{m} \text{ln}\bigg(\bigg(\frac{\theta\lambda_i}{\theta\lambda_i + \lambda_j}\bigg)^{w_{ij}^{+}}\bigg(\frac{\lambda_i}{\lambda_i + \theta\lambda_j}\bigg)^{w_{ij}^{-}}\bigg)\bigg) \\
+& = \sum_{i=1}^{m} \sum_{j=1}^{m} \text{ln}\bigg(\frac{\theta\lambda_i}{\theta\lambda_i + \lambda_j}\bigg)^{w_{ij}^{+}} + \text{ln}\bigg(\frac{\lambda_i}{\lambda_i + \theta\lambda_j}\bigg)^{w_{ij}^{-}} \\
+& = \sum_{i=1}^{m} \sum_{j=1}^{m} w_{ij}^{+}\text{ln}(\theta\lambda_i) - w_{ij}^{+}\text{ln}(\theta\lambda_i + \lambda_j) + w_{ij}^{-}\text{ln}(\lambda_i) - w_{ij}^{-}\text{ln}(\lambda_i + \theta\lambda_j) \\
+& = \sum_{i=1}^{m} \sum_{j=1}^{m} w_{ij}^{+}\text{ln}(\theta) + w_{ij}^{+}\text{ln}(\lambda_i) - w_{ij}^{+}\text{ln}(\theta\lambda_i + \lambda_j) + w_{ij}^{-}\text{ln}(\lambda_i) - w_{ij}^{-}\text{ln}(\lambda_i + \theta\lambda_j) \\
+& = n^{+}\text{ln}(\theta) + \sum_{i=1}^{m} \sum_{j=1}^{m} w_{ij}^{+}\text{ln}(\lambda_i) - w_{ij}^{+}\text{ln}(\theta\lambda_i + \lambda_j) + w_{ij}^{-}\text{ln}(\lambda_i) - w_{ij}^{-}\text{ln}(\lambda_i + \theta\lambda_j) \\
+& = n^{+}\text{ln}(\theta) + \sum_{i=1}^{m} w_{i}\text{ln}(\lambda_i) + \sum
+})
+
+\end{split}
+\end{equation}
 
 \subsubsection{``Conditional Home-Field Advantage''}
 
-The model we are considering here only provides an advantage multiplier when necessary. This has many applications both in the current project and within sports. Within sports, we may consider many games which are played within at a neutral site. In this case, we would expect neither team to have a ``home-field advantage''. However, we would like predict the outcome of these games using data where some games were played at a non-neutral site. Within the context of this project, we can only assigned a hitbox advantage indicator if the difference in hitbox height is beyond a certain threshold. The resulting new probability statement is a combination of equation 3 and 4 where equation 3 is used if no advantage is present and equation 4 is used if an advantage is present. 
+The model we are considering here only provides an advantage multiplier when necessary. This has many applications both in the current project and within sports. Within sports, we may consider many games which are played within at a neutral site. In this case, we would expect neither team to have a ``home-field advantage''. However, we would like predict the outcome of these games using data where some games were played at a non-neutral site. Within the context of this project, we can only assigned a hitbox advantage indicator if the difference in hitbox height is beyond a certain threshold. The resulting new probability statement is a combination of equation 3 and 4 where equation 3 is used if no advantage is present and equation 4 is used if an advantage is present.
 
 \subsection{Model Estimation}
 
@@ -306,7 +312,7 @@ TODO: Discuss Algorithm Intuitively and results and connection to MLE
 
 \subsubsection{Minorization-Maximization Algorithms}
 
-While the algorithm described by Zermelo handles the most basic case, it was not extended to consider covariate models or "home-field advantage" models. In this case, a more general theory of estimation algorithms surrounding Bradley-Terry models were developed. Lange,Hunter and Yang (2000) showed the algorithm developed by Zermelo is a specific case of a more general class of algorithms known as Minorization-Maximization (MM) Algorithms. One well known special case extending from this class of algorithms is the Expectation-Maximization (EM) Algorithm. Heiser (1995) TODO: describes in detail the connection between the MM and EM algorithms. 
+While the algorithm described by Zermelo handles the most basic case, it was not extended to consider covariate models or "home-field advantage" models. In this case, a more general theory of estimation algorithms surrounding Bradley-Terry models were developed. Lange,Hunter and Yang (2000) showed the algorithm developed by Zermelo is a specific case of a more general class of algorithms known as Minorization-Maximization (MM) Algorithms. One well known special case extending from this class of algorithms is the Expectation-Maximization (EM) Algorithm. Heiser (1995) TODO: describes in detail the connection between the MM and EM algorithms.
 
 Since the algorithm proved by Zermelo is a special case of MM algorithms, the estimation procedure only changes in notation between the original and latest literature. Instead, we provide the MM algorithm estimation procedure for the "home-field advantage" model discussed previously and note the key differences.
 
@@ -316,7 +322,7 @@ TODO: Discuss key differences
 
 \subsubsection{Bayesian Estimation Methods}
 
-While a review of classical statistical methods have been review previously, the goal of this project is to develop a Bayesian view of Bradley-Terry models with the intent for these models to be used in conjunction with the mathematics of Markov Decision Processes. For this, we refer to the work of Caron and Doucet TODO: add reference. Their paper "Efficient Bayesian Inference for GeneralizedBradley-Terry Models" describes the construction of Gibbs samplers for both the typical comparison and "home-field advantage" models through the reformulation of the likelihood function via different latent variables. 
+While a review of classical statistical methods have been review previously, the goal of this project is to develop a Bayesian view of Bradley-Terry models with the intent for these models to be used in conjunction with the mathematics of Markov decision processes. For this, we refer to the work of Caron and Doucet TODO: add reference. Their paper ``Efficient Bayesian Inference for Generalized Bradley-Terry Models" describes the construction of Gibbs samplers for both the typical comparison and ``home-field advantage'' models through the reformulation of the likelihood function via different latent variables.
 
 In the original case, the latent variables of interest are the latent strength distributions which are denoted as $\lambda_i$ in the above discussion. Instead of introducing this model, Caron and Doucet instead introduce the latent variable $Z_{i,j} = min(Y_{kj}, Y_{ki})$ where each $Y_kj, Y_{ki}$ is a realization from the underlying strength distribution of competitors indexed by $i$ and $j$, respectively. This allows the difference between two competitors to be captured in the new latent variable $Z_{i,j}$ as opposed to seperate latent variables $\lambda_i$ and $\lambda_j$. However, by properties of the exponential distribution, we have that:
 
@@ -328,14 +334,13 @@ TODO:
 
 \subsection{Comparison Graph Definition}
 
-One key assumption when using Bradley-Terry models for paired comparison modeling is the data is in such a format the comparisons of interest can be estimated. In many cases when a paired-comparison model is employed, all or most items being compared have been compared to each other at least once and in each comparison at least one has been chosen over the other. If we consider professional sports as an example, each team typically plays most other teams at least once and some teams multiple times. This leads to many connections among a comparitvely small number of teams. The probability of the dataset being appropriate for paired-comparison modeling is high. However, within many college sports the number of teams is far larger than the number of matches any one team will play during a season. This leads to a much lower probability of the dataset contains a sufficient number of games between teams to be appropriate for paired-comparison modeling. We can validate this assumptions through the use of Graph Theory. 
-A first principles view of graph theory is beyond the scope of this paper, but the author refers interested readers to Chartrand for a more detailed treatment\cite{chartrand_1977}. Graph Theory is the studies objects known as graphs which represent a generalized form of objects and relations. Graphs in this sense are not visualizations but a collection of ``nodes'' and ``edges''.  Nodes represent atomic items such as sports teams or choices where edges may represent matches between teams or preferences between choices. Edges represent the relationships between nodes. An intuitive example is that of a social network. Consider a group of people who each may or may not know each other. Each person would be represented as a node within this graph. We can places edges between nodes where there exists an aquiatence. 
+One key assumption when using Bradley-Terry models for paired comparison modeling is the data is in such a format that the comparisons of interest can be estimated. In many cases when a paired-comparison model is employed, all or most items being compared have been compared to each other at least once and no item has been chosen over all other items in its comparisons. If we consider professional sports as an example, each team typically plays most other teams at least once and some teams multiple times. This leads to many connections among a comparatively small number of teams. The probability of the dataset being appropriate for paired-comparison modeling is high. However, within many college sports the number of teams is far larger than the number of matches any one team will play during a season. This leads to a much lower probability of the dataset containing a sufficient number of games between teams to be appropriate for paired-comparison modeling. We can validate the assumption through the use of graph theory.
 
-A graph can be an undirected or directed graph. In the case of an undirected graph, a single edge is placed between two nodes indicating a general relationship. In the case of our social network example, an undirected graph would be appropriate. Within an undirected graph, we can visualize moving between two nodes whenever any edge connects them. A directed graph adds an additional layer of information for direction. For the purposes of this project, the nodes under consideration are characters which have played at least one match on SaltyBet. Each directed edge from between two characters indicates the outcome of a match where the direction will extend from the winning character to the defeated character. In the case of a directed graph, we can visualize movement between characters in the same way as an undirected graph, but our options are more restricted due to the additional layer of direction between characters.
+A first principles view of graph theory is beyond the scope of this paper, but the author refers interested readers to Chartrand for a more detailed treatment \cite{chartrand_1977}. graph theory studies objects known as graphs which represent a generalized form of objects and relations. Graphs in this sense are not visualizations but a collection of ``nodes'' and ``edges''.  Nodes represent atomic items such as sports teams or choices where edges may represent matches between teams or preferences between choices. Edges represent the relationships between nodes. An intuitive example is that of a social network. Consider a group of people who each may or may not know each other. Each person would be represented as a node within this graph. We can places edges between nodes where there exists an acquaintance.
 
-The graph we have described represents a \textbf{comparison graph}. This graph defines all matches played between characters as directed edges and will be used to assess the necessary assumptions of connectivity for paired-comparison modeling. Figure X shows two examples of connected and disconnected directed comparison graphs.
+A graph can be an undirected or directed. In the case of an undirected graph, a single edge is placed between two nodes indicating a general relationship. In the case of our social network example, an undirected graph would be appropriate. Within an undirected graph, we can visualize moving between two nodes without restriction whenever any edge connects them. A directed graph adds an additional layer of information for direction. For the purposes of this project, the nodes under consideration are characters which have played at least one match on SaltyBet. Each directed edge between two characters indicates the outcome of a match where the direction will extend from the winning character to the defeated character. In the case of a directed graph, we can visualize movement between characters in the same way as an undirected graph, but our options are more restricted due to the additional layer of direction between characters.
 
-% TODO: Show connected and disconnected comparison graph examples
+The graph we have described represents a \textem{comparison graph}. This graph defines all matches played between characters as directed edges and will be used to assess the necessary assumptions of connectivity for paired-comparison modeling. Figure 3 shows two examples of connected and disconnected directed comparison graphs in Figure 3a and Figure 3b, respectively.
 
 \begin{figure}[!ht]
 	\centering
@@ -343,24 +348,24 @@ The graph we have described represents a \textbf{comparison graph}. This graph d
 		\centering
 		\captionsetup{width=0.85\textwidth}
 		\includegraphics[scale=0.3]{../images/SampleConnectedGraph.png}
-		\caption{A sample comparison graph with a total of 7 nodes. This graph is strongly connected as there exists a path using directed edges between any two nodes in the graph.}
+		\caption{This graph is strongly connected as there exists a path using directed edges between any two nodes in the graph.}
 		\label{fig:sub1}
 	\end{subfigure}%
 	\begin{subfigure}[t]{.45\textwidth}
 		\centering
 		\captionsetup{width=0.85\textwidth}
 		\includegraphics[scale=0.3]{../images/SampleDisconnectedGraph.png}
-		\caption{A sample comparison graph with a total of 7 nodes. This graph is entirely disconnected as there exists disjoint subsets of nodes which have no connections between them.}
+		\caption{This graph is entirely disconnected as there exists disjoint subsets of nodes which have no connections between them.}
 		\label{fig:sub2}
 	\end{subfigure}%
-	\label{fig}
+	\caption{An example of two comparison graphs with nodes A through G representing sample competitors.}\label{fig}
 \end{figure}
 
 \subsection{Condition of Strong Connectivity}
 
-The original constraint for paired-comparison data to be suitable for analysis such that all comparisons can be estimated was formulated by Ford in 1957 \cite{ford_1957}. This requirement originally stipulated that the comparison graph must be such that any node within the graph can be chosen and directed edges exists in such a way that movement along the existing edges admits a path to any other node in the graph. In graph theoretic terms, this condition is equivalent to \textbf{strong connectivity} or the comparison graph has the property of being \textbf{strongly connected}. It is important to note this is a stronger statement than an undirected graph being connected as the ``one-way streets'' formed by directed edges may not necessarily form a strongly connected graph. Figure Y shows an example of a directed graph which has an edge between all nodes but is not strongly connected. We will revisit the relationship between strong connectivity and undirected graphs shortly.
+The original constraint for paired-comparison data to be suitable for analysis such that all comparisons can be estimated was formulated by Ford in 1957 \cite{ford_1957}. This requirement stipulated that the comparison graph must be such that any node within the graph can be chosen and directed edges exists in such a way that movement along the existing edges admits a path to any other node in the graph. In graph theoretic terms, this condition is equivalent to \textem{strong connectivity} or stating that the comparison graph has the property of being \textem{strongly connected}. It is important to note this is a stronger statement than an undirected graph being connected as the ``one-way streets'' formed by directed edges may not necessarily form a strongly connected graph. Figure 4a shows an example of a directed graph which has an edge between all nodes but is not strongly connected. We will revisit the relationship between strong connectivity and undirected graphs shortly.
 
-In order to evaluate the satisfaction of this assumption within a dataset of comparisons, we can use well known algorithms to determine the connectivity of the comparison graph. Tarjan's Algorithm by Robert Tarjan is an efficient algorithm which runs in linear time with regard to the number of nodes within a graph and determines the number of strongly connected components within a graph \cite{tarjan_1972}. Strongly connected components of a graph are disjoint subsets of nodes which are independently strongly connected despite the graph as a whole not being strongly connected. This algorithm can serve two purposes within the context of paired-comparison models. If the interest is in determining if the comparison graph is strongly connected, then the desired output from this algorithm is that the graph is constructed from one strongly connected component. However, in the event there exist more than one strongly-connected component within the graph (implying the entire graph is not strongly connected), the algorithm will return labels corresponding to disjoint sets of nodes which are strongly connected. In this case, a paired-comparison model can be fit to each of the strongly connected components identified, but comparisons across the strongly connected components will be unavailable. Figure Ya shows an example of a graph containing two strongly connected components while figure Xa shows an example of a being strongly connected.
+In order to evaluate this assumption within a dataset of comparisons, we can use well known algorithms to determine the connectivity of the comparison graph. Tarjan's Algorithm \cite{tarjan_1972} by Robert Tarjan is an efficient algorithm which runs in linear time with regard to the number of nodes within a graph and determines the number of strongly connected components within a graph. Strongly connected components of a graph are disjoint subsets of nodes which are independently strongly connected despite the graph as a whole not being strongly connected. This algorithm can serve two purposes within the context of paired-comparison models. If the interest is in determining if the comparison graph is strongly connected, then the desired output from this algorithm is that the graph is constructed from one strongly connected component. However, in the event there exist more than one strongly-connected component within the graph (implying the entire graph is not strongly connected), the algorithm will return labels corresponding to disjoint sets of nodes which are strongly connected. In this case, a paired-comparison model can be fit to each of the strongly connected components identified, but comparisons across the strongly connected components will be unavailable. Figure 4a shows an example of a graph containing two strongly connected components while figure 3a shows an example of a graph being strongly connected.
 
 \begin{figure}[!h]
 	\centering
@@ -368,42 +373,49 @@ In order to evaluate the satisfaction of this assumption within a dataset of com
 		\centering
 		\captionsetup{width=0.85\textwidth}
 		\includegraphics[scale=0.3]{../images/SampleWeaklyConnectedGraph.png}
-		\caption{A comparison graph with a total of 7 nodes. This graph is weakly connected as there does not exist a path along directed edges between all nodes in the graph. Figure Yb shows the undirected edge connectivity of the graph. }
+		\caption{This graph is weakly connected as there does not exist a path along directed edges between all nodes in the graph.}
 		\label{fig:sub1}
 	\end{subfigure}%
 	\begin{subfigure}[t]{.45\textwidth}
 		\centering
 		\captionsetup{width=0.85\textwidth}
 		\includegraphics[scale=0.3]{../images/SampleUndirectedWeaklyConnectedGraph.png}
-		\caption{A comparison graph with a total of 7 nodes. This graph is weakly connected as it is a transformation of the graph shown in Ya where each directional edge is replaced with a undirected or bidirectional edge. Using this transformation, there exists a path between any two nodes in the graph implying weak connectivity of the graph shown in Ya.}
+		\caption{This graph is weakly connected as it is a transformation of the graph shown in Ya where each directional edge is replaced with a undirected or bidirectional edge. Using this transformation, there exists a path between any two nodes in the graph implying weak connectivity of the graph shown in 4a.}
 		\label{fig:sub2}
 	\end{subfigure}%
-	\label{fig}
+	\caption{An example of comparison graphs representing weak connectivity in both a directed and undirected setting using nodes A through G as example competitors.}\label{fig}
 \end{figure}
 
 \subsection{Condition of Weak Connectivity}
 
-While strong connectivity of the comparison graph allows a paired-comparison model to be fit without issue, Yan (2014) discusses how using a singular pertubation method can allow for comparisons to be made when the graph is only \textbf{weakly connected.} Weakly connected graphs are directed graphs which, if transformed into an undirected graph and all directed edges are made undirected, the graph is connected (or all nodes can be reached from any other node). Figure Ya shows an example of a graph which is not strongly connected but is weakly connected. In Figure Ya, we see the original directed graph with node A having only directed edges away from it. However, if we remove the direction from each of the edges, we see in Figure Yb that the undirected version of this graph is connected. One intuitive reason for why weakly connected graphs are not sufficient without modification is that one team is undefeated and without an additional measure of "strength of win", the magnitude of how much the latent strength of this team differs from the next best team is unknown. Another intuitive reason is that node A in Figure Ya prevents the flow of information between strongly connected components. 
+While strong connectivity of the comparison graph allows a paired-comparison model to be fit without issue, Yan discusses how using a singular perturbation method can allow for comparisons to be made when the graph is only \textem{weakly connected} \cite{yan2016ranking}. Weakly connected graphs are directed graphs which, if transformed into an undirected graph and all directed edges are made undirected, the graph is connected (or all nodes can be reached from any other node). Figure 4a shows an example of a graph which is not strongly connected but is weakly connected. In Figure 4a, we see the original directed graph with node D having only directed edges away from it. However, if we remove the direction from each of the edges, we see in Figure 4b that the undirected version of this graph is connected. One intuitive reason for why weakly connected graphs are not sufficient without modification is that one team is undefeated and without an additional measure of ``strength of win'', the magnitude of how much the latent strength of this team differs from the next best team is unknown. Another intuitive reason is that node D in Figure 4a prevents the flow of information between strongly connected components.
 
-The singular pertubation method discussed by Yan is equivalent to adding a penalized term to the likelihood in such a way that a "pseudo-loss" to at least one other team is added to the comparison graph in order for the graph to become strongly connected.\cite{yan2016ranking} This term can be re-interpreted as a specific prior distribution to allow for the penalized term to exist within the likelihood.
-
-% TODO: Discuss reformulation of likelihood
+The singular perturbation method discussed by Yan is equivalent to adding a penalized term to the likelihood in such a way that a ``pseudo-loss'' to at least one other team is added to the comparison graph in order for the graph to become strongly connected. This penalizer term can be re-interpreted as a specific prior distribution. Depending on the framework being employed, the prior distribution will differ. The next section reveals why this method was not required for large datasets, but can be adapted depending on the needs of the dataset.
 
 \subsection{Simulation of Graph Connectivity}
 
-It is useful to understand how likely a graph is to be connected given some properties (number of nodes, number of edges). Assessing the probability of a graph being connected is a difficult combinatorial problem to solve analytically. However, it is possible to simulate the connectedness of a graph. In the case of the data we are analyzing, we assume that two characters are randomly chosen to participate in a match. This is a strong assumption about the underlying strucfture of how characters are chosen for a given match Specifically, it is unclear if SaltyBet uses any heuristic beyond randomness to choose characters for each match. This could be analyzed by attempting to determine if there are clusters of nodes within the graph which have a higher connectivity to other nodes. Unfortunately, the problem of detecting ``densely'' connected clusters within a graph is computational challenging as well and is beyond the scope of this project [CITE]. Instead, we will assume that of the 9,662 characters present, two characters are randomly chosen and then compared within a match. For our simulation, we will allow the order in which the characters are chosen to correspond to the direction of the edge between each character with the first character being chosen denoted as the winner of the match. This equates to 50\% win rate for each character. While this does not account for the underlying strength of a character, it provides a general enough framework for an intuition to be formed around how many matches are needed to be strongly connected. 
+It is useful to understand how likely a graph is to be connected given some properties (number of nodes, number of edges). Assessing the probability of a graph being connected is a difficult combinatorial problem to solve analytically. However, it is possible to simulate the connectedness of a graph. In the case of the data we are analyzing, we assume that two characters are randomly chosen to participate in a match. This is a strong assumption about the underlying structure of how characters are chosen for a given match. Specifically, it is unclear if SaltyBet uses any heuristic beyond randomness to choose characters for each match. This could be analyzed by attempting to determine if there are clusters of nodes within the comparison graph all SaltyBet matches which have a higher connectivity to other nodes. Unfortunately, the problem of detecting ``densely'' connected clusters within a graph is computational challenging as well and is beyond the scope of this project \cite{khuller2009finding}. Instead, we will assume that of the 9,662 characters present, two characters are randomly chosen and then compared within a match. For our simulation, we will allow the order in which the characters are chosen to correspond to the direction of the edge between each character with the first character being chosen denoted as the winner of the match. This equates to an expected 50\% win rate for each character. While this does not account for the underlying strength of a character, it provides a general enough framework for an intuition to be formed around how many matches are needed to be strongly connected.
 
-The simulation begins by generating 9,662 nodes and then randomly generating edges between them. The number of edges generated varies from 10,000 to 1,250,000 in steps of 500 with 50 simulated comparison graphs being generated at each step. We then apply Tarjan's Algorithm to determine the number of strongly connected components within each graph. In parallel to this experiment, we also measure the number of weakly connected components within each graph simulated and plot this information simultaneously. The results of this simulation are shown in Figure Z and Table A below.
-
-The results of the simulation revealed that b
-
-% TODO: Simulation Results (Figure)
-% TODO: Simulation Results (Table)
-
-% TODO: Summarize Simulation Results
-% TODO: Mention code is available
+The simulation begins by generating 9,662 nodes and then randomly generating directed edges between them. The number of edges generated varies from 100,000 to 1,500,000 in steps of 100,000 with 25 simulated comparison graphs being generated at each step. We then apply Tarjan's Algorithm to determine the number of strongly connected components within each graph. In parallel to this experiment, we also measure the number of weakly connected components within each graph simulated. The results of the simulation revealed that a lower number of directed edges are required than expected in order for the graph to be strongly connected. Only the simulated comparison graphs consisting of 100,000 edges had results which were not entirely strongly connected. In the case of the 100,000 edges, out of the 25 simulations performed there were an average of 1.56 strongly connected components per graph. Specifically, 12 of the 25 simulations had more than one strongly connected component or the graphs simulated were not entirely strongly connected. In the case of weakly connected components, since the condition is weaker than being entirely strongly connected, all simulations returned that the graph was weakly connected at 100,000 edges and greater. While this is an approximation using assumptions previously discussed, this does provide evidence connectivity will not be an issue for the dataset in question or when the number of edges is at least one order of magnitude larger than the number of nodes. Code used to perform this simulation is available in the code appendix.
 
 \section{Data Analysis}
+
+\subsection{Data Collection}
+
+For this project, historic matches were scraped from the SaltyBet website through the premium functionality provided. There were a total of TODO: X matches between Y characters. The scraping script was written using Python and the Selenium module [X], the code appendix contains code for scraping each match and character. Due to the restrictions placed on the number of server calls each user can make to the SaltyBet server per hour, scraping for the entire dataset took approximately TODO: Z days. Once scraped, the data were formatted and into a PostgreSQL database.
+
+Within saltybet, characters are divided into five distinct tiers: X, S, A, B, and P. These tiers are assigned based on the performance of each character previously. Characters are promoted or demoted based on their performance directly after a match. There are three distinct types of matches: Matchmaking, Tournament, and Exhibition. The matchmaking mode algorithmically chooses players to match up against each other where the odds are approximately equal of each character winning. Tournament mode is a random set of 16 characters from a specific tier who fight each other in a single-elimination tournament. Finally, exhibition mode is a set of viewer-requested matches which also allows teams of characters to compete. Exhibition mode games are typically chosen by viewers to force edge-case behavior of the characters. Many times, viewer requested matches result in a server crash due to intense computational loads.
+
+% TODO: Insert Table Describing Which Characters are in Which Tier
+% TODO: Describe how characters can move tiers
+% TODO:
+
+Characters were web-scraped individually and stored with the following information: Author, Life, Meter, Hitbox Width, and Hitbox Height. The scraping process for characters was similar to the process for scraping match data and the code appendix contains a modified script for character data scraping. Of all the characters scraped, TODO: X had no image associated with their profile. For the purpose of this project, we excluded these characters. The number of matches affected by this removal is TODO: Z. Figure 2 showed an example of differing hitboxes, but
+
+% TODO: Discuss Hitbox Evidence
+% TODO: Discuss Unnecessity of Time Varying Attributes
+% TODO: Discuss Relationship to ELO
+% TODO: Discuss other Data Cleaning Issues
 
 \subsection{Data Cleaning}
 
@@ -437,13 +449,13 @@ For hitbox data, the median hitbox height was XYZ pixels while the median hitbox
 \printbibliography
 
 \newpage
-\section{Appendix-R Code}
+\section{Code Appendix}
+
 \singlespacing
 \begin{lstlisting}
-All that sweet sweet R code. 
+All that sweet sweet R code.
 
 Verbatim would also work here I think.
 
 \end{lstlisting}
 \end{document}
-
