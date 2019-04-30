@@ -296,9 +296,23 @@ In this case, we will make two additional defitions. First, that $w_i$ will repr
 \end{split}
 \end{equation}
 
+With this model, there are several potential downsides. The model forces each match to have an advantage associated with it. In the case of sports, there are many games which are played at neutral sites which do not have any advantage for either team. In the case of SaltyBet, there may only be advantages after a certain threshold of hitbox difference. In either case, it would be advantageous to have a model which allows us to incorporate an advantage only when plausible.
+
 \subsubsection{``Conditional Home-Field Advantage''}
 
-The model we are considering here only provides an advantage multiplier when necessary. This has many applications both in the current project and within sports. Within sports, we may consider many games which are played within at a neutral site. In this case, we would expect neither team to have a ``home-field advantage''. However, we would like predict the outcome of these games using data where some games were played at a non-neutral site. Within the context of this project, we can only assigned a hitbox advantage indicator if the difference in hitbox height is beyond a certain threshold. The resulting new probability statement is a combination of equation 3 and 4 where equation 3 is used if no advantage is present and equation 4 is used if an advantage is present.
+The ``conditional advantage'' model is a solution to the problems addressed at the end of the previous section. In order to create the model, we simply combine the likelihood functions of both the basic Bradley-Terry formulation as well as the ``home-field advantage'' formulation of the model. The probability statement of interest is shown below.
+
+TODO: Probability statement with three conditions
+
+Using this new probabability statement in the same way the previous two likelihood functions have been derived, we see that we have the following:
+
+TODO: Likelihood function with notaiton denoting wins and loses
+
+Now, we can continue the same process as before to derive a compact form for the log-likelihood function.
+
+TODO: Log-likelihood function
+
+This is the final model under consideration in this project and will serve to attempt to detect if there is a specific threshold after which hitbox advantages become predictive of match results.
 
 \subsection{Model Estimation}
 
@@ -312,7 +326,7 @@ TODO: Discuss Algorithm Intuitively and results and connection to MLE
 
 \subsubsection{Minorization-Maximization Algorithms}
 
-While the algorithm described by Zermelo handles the most basic case, it was not extended to consider covariate models or "home-field advantage" models. In this case, a more general theory of estimation algorithms surrounding Bradley-Terry models were developed. Lange,Hunter and Yang (2000) showed the algorithm developed by Zermelo is a specific case of a more general class of algorithms known as Minorization-Maximization (MM) Algorithms. One well known special case extending from this class of algorithms is the Expectation-Maximization (EM) Algorithm. Heiser (1995) TODO: describes in detail the connection between the MM and EM algorithms.
+While the algorithm described by Zermelo handles the most basic case, it was not extended to more advanced models such as the "home-field advantage" model. In this case, a more general theory of estimation algorithms surrounding Bradley-Terry models were developed. Lange, Hunter and Yang (2000) [TODO: Cite] showed the algorithm developed by Zermelo is a specific case of a more general class of algorithms known as Minorization-Maximization (MM) Algorithms. One well known special case extending from this class of algorithms is the Expectation-Maximization (EM) Algorithm. Heiser (1995) TODO: describes in detail the connection between the MM and EM algorithms.
 
 Since the algorithm proved by Zermelo is a special case of MM algorithms, the estimation procedure only changes in notation between the original and latest literature. Instead, we provide the MM algorithm estimation procedure for the "home-field advantage" model discussed previously and note the key differences.
 
@@ -322,13 +336,35 @@ TODO: Discuss key differences
 
 \subsubsection{Bayesian Estimation Methods}
 
-While a review of classical statistical methods have been review previously, the goal of this project is to develop a Bayesian view of Bradley-Terry models with the intent for these models to be used in conjunction with the mathematics of Markov decision processes. For this, we refer to the work of Caron and Doucet TODO: add reference. Their paper ``Efficient Bayesian Inference for Generalized Bradley-Terry Models" describes the construction of Gibbs samplers for both the typical comparison and ``home-field advantage'' models through the reformulation of the likelihood function via different latent variables.
+While a review of classical statistical methods for estimating Bradley-Terry models have been review previously, the goal of this project is to develop a Bayesian view of Bradley-Terry models with the intent for these models to be used in conjunction with the mathematics of Markov decision processes. For this, we refer to the work of Caron and Doucet [TODO: add reference]. Their paper ``Efficient Bayesian Inference for Generalized Bradley-Terry Models" describes the construction of Gibbs samplers for both the typical comparison and ``home-field advantage'' models through the reformulation of the likelihood function via different latent variables.
 
-In the original case, the latent variables of interest are the latent strength distributions which are denoted as $\lambda_i$ in the above discussion. Instead of introducing this model, Caron and Doucet instead introduce the latent variable $Z_{i,j} = min(Y_{kj}, Y_{ki})$ where each $Y_kj, Y_{ki}$ is a realization from the underlying strength distribution of competitors indexed by $i$ and $j$, respectively. This allows the difference between two competitors to be captured in the new latent variable $Z_{i,j}$ as opposed to seperate latent variables $\lambda_i$ and $\lambda_j$. However, by properties of the exponential distribution, we have that:
+Classically, the latent variables of interest are the latent strength distributions which are denoted as $\lambda_i$ in the above discussion. The items of interest were then contrasts with a specific logistic regression where the coefficients are the latent strengths of each competitor. Instead of introducing this model, Caron and Doucet instead introduce the latent variable $Z_{i,j} = min(Y_{kj}, Y_{ki})$ where each $Y_kj, Y_{ki}$ is a realization from the underlying strength distribution of competitors indexed by $i$ and $j$, respectively. This allows the difference between two competitors to be captured in the new latent variable $Z_{i,j}$ as opposed to seperate latent variables $\lambda_i$ and $\lambda_j$. As is the case in other scenarios (Namely probit regression), inclusion of additional latent variables allows the model to be expressed in a sufficiently compact for to allow for Gibbs Sampling instead of requiring a more computational intensive Metropolis-Hasting algorithm for sampling. Using the latent variable formulation by Caron and Doucet, we introduce a Gibbs Sampler algorithm for each of the three model scenarios discussed above. We will not discuss the derivation of these models in detail but only setup the framework using key statements. More detailed derivations are found in the original paper by Caron and Doucet.
 
-$$ Z_{i,j} ~ Gamma(n_{ij}, \lambda_i + \lambda_j) $$
+Caron and Doucet assume that the player peformance from each match is distributed as an exponential distribution with the rate parameter associated with each player is the latent strength, $\lambda_i$. The probability statement of interest is modified in a subtle but critical way for this context. Using an exponential distribution for each character, the match ups can be viewed as characters racing and the output from their associated exponential distributions are their arrival times. Therefore, if the output from a specific character during a match $Y_{i,k}$ is less than its competitors $Y_{j,k}$, character $i$ defeats character $j$ during match $k$. A comparison of these two equations are shown below.
 
-TODO:
+TODO: Compare Coran and Docuet Formulation with Classical
+
+Using the latent variable formulation discussed above, we can use well known results from mathematical statistics to note that the minimum of two exponential distributions is also distributed as an exponential distribution with the associated rate parameter being the sum of the two rate parameters from the minimum. Mathematically, this is equivalent to the following in equation X TODO:. Now, since each character will hopefully match up multiple times, we have that the latent variable $Z_{i,j}$ exists as the sum of all match results. Since each match result is distributed as an exponential distribution, we have the latent variable of interest $Z_{i,j}$ being distributed as a Gamma distribution with parameters $n_{ij}$ representing the number of matches between $i$ and $j$ and $\lambda_i + \lambda_j$ representing the distribution of the minimum of the two players strength distributions.
+
+TODO: $Z_{i,j} = \text{min}$
+
+Using these pieces, a Gibbs sampler is derived which consists of the following two steps.
+
+TODO: Algorithm box with basic Gibbs Sampler
+
+Now, in order to account for ``home-field advantage'' a distribution must be placed on the advantage term, $\theta$. In the paper by Coran and Doucet, independent priors are placed on $\lambda$ and $\theta$ and $\theta$ is assumed to be distributed as a Gamma distribuion. Using this, we can again using a Gibbs Sampling approach to sample from this model as shown in algorithm box TODO: X.
+
+TODO: Algorithm box for ``home-field advantage''
+
+Finally, we discuss the ``conditional advantage'' model. This model has not been discussed in the Coran and Doucet paper or in other literature found by the author. In order to derive a Gibbs Sampler for this model, we first note that this model requires that the advantage between any two characters be static. In order to modify the model to account for hitbox advantages, we reformulate the two models provided by Coran and Doucet to provide an advantage term when the hitbox threshold is beyond a certain point. However, this model cannot be used to model neutral site matches as this would not be a static advantage across all matches (instead the advantage may shift from character to character each match). We reformulate the latent variable provided by Coran and Doucet to be the following:
+
+$Z_{i,j} = \prod_{i=1}^{K} G(z_{i,j}; n_{ij}, \lambda_i + \lambda_j)\I(\theta <= C_{hitbox}) + \prod_{i=1}^{K} G(z_{i,j}; n_{ij} \theta\lambda_i + \lambda_j)I(\theta > C_{hitbox})$
+
+Algorithm box
+
+$Z_{ij}^{t} | D, \lambda^{(t-1}, \theta^{(t-1)} \sim G(n_{ij}, \theta^{(t-1)}\lambda_i^{(t-1)} + \lambda_j^{(t-1)}) OR \sim G(n_{ij}, \lambda_i^{(t-1)} + \lambda_j^{(t-1)}) $ 
+
+
 
 \section{Comparison Graph Connectivity}
 
