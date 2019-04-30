@@ -57,6 +57,8 @@
 \usepackage[backend=bibtex]{biblatex}
 \bibliography{references}
 \usepackage{caption}
+\usepackage{algorithm2e}
+
 
 %\usepackage[square,sort,comma,numbers]{natbib}
 \usepackage{url}
@@ -221,7 +223,7 @@ This paper is divided into four primary sections. The first section describes th
 
 \section{Models}
 
-paired-comparison models were introduced formally in a statistical setting by Thurstone in 1927 \cite{thurstone_1927}. This paper introduced the ``Law of Comparative Judgement'' which is used in Psychometrics to measure test subject preferences. This was the first paired-comparison model formulated. The more developed model which we will focus on in this paper was first developed by Bradley and Terry in 1952 \cite{bradley_terry_1952}. The goal of a paired-comparison model is to model the probability of one item being chosen over another or the probability of one sports team defeating another. The quantities being estimated are latent preferences or strengths. The general goal of any paired-comparison model is to estimate parameters such that a model of the following form may be fit:
+Paired-comparison models were introduced formally in a statistical setting by Thurstone in 1927 \cite{thurstone_1927}. This paper introduced the ``Law of Comparative Judgement'' which is used in Psychometrics to measure test subject preferences. This was the first paired-comparison model formulated. The more developed model which we will focus on in this paper was first developed by Bradley and Terry in 1952 \cite{bradley_terry_1952}. The goal of a paired-comparison model is to model the probability of one item being chosen over another or the probability of one sports team defeating another. The quantities being estimated are latent preferences or strengths. The general goal of any paired-comparison model is to estimate parameters such that a model of the following form may be fit:
 
 \[ P(A > B) = f(x) \]
 
@@ -233,36 +235,30 @@ As previously described, paired-comparison models are interested in estimating t
 
 \[ P(i > j) = \frac{\lambda_i}{\lambda_i + \lambda_j} \]
 
-We have altered the indices from $A$ and $B$ to $i$ and $j$, respectively, to match the prevailing literature. This model similar to a logistic regression model. In fact, under the transformation $\lambda_i = \exp{\pi_i}$, we obtain a function similar in form to a logistic regression. In fact, if the logit is taken of each side, a Bradley-Terry model can be interpreted as estimating contrasts between the estimated latent strength of the items being compared. This is the approach taken by Agresti which we will return to shortly. Using this formulation, we can derive the likelihood and log-likelihood functions for the Bradley-Terry model.
+We have altered the indices from $A$ and $B$ to $i$ and $j$, respectively, to match the prevailing literature. This model similar to a logistic regression model. In fact, under the transformation $\lambda_i = e^{\pi_i}$, we obtain a function similar in form to a logistic regression. In fact, if the logit is taken of each side, a Bradley-Terry model can be interpreted as estimating contrasts between the estimated latent strength of the items being compared. This is the approach taken by Agresti which we will return to shortly. Using this formulation, we can derive the likelihood and log-likelihood functions for the Bradley-Terry model.
 
 \begin{equation} \label{eq1}
 \begin{split}
-L(\lambda_i) & = \prod_{i=1}^{m}\prod_{j=1}^{m} P(i > j) \\
- & = \prod_{i=1}^{m}\prod_{j=1}^{m} \bigg(\frac{\lambda_i}{\lambda_i + \lambda_j}\bigg)^{w_{ij}}\bigg)
+	L(\lambda_i) & = \underset{i \neq j}{\prod_{i=1}^{m}\prod_{j=1}^{m}} P(i > j) \\
+	& = \underset{i \neq j}{\prod_{i=1}^{m}\prod_{j=1}^{m}} \bigg(\frac{\lambda_i}{\lambda_i + \lambda_j}\bigg)^{w_{ij}}
 \end{split}
 \end{equation}
 
-TODO: Add bottom statement of $i \neq j$
-
-Note that $w_{ij}$ represents the number of times $i$ has defeated or been chosen over $j$ and $m$ represents the total number of items. To derive the log-likelihood, first note the following useful definitions. First, we will define the total number of comparisons between $i$ and $j$ as $n_{ij}$ such that $n_{ij} = w_{ij} + w{ji}$ and that $n_{ij} = n_{ji}$. Therefore, we have the following:
+Note that $w_{ij}$ represents the number of times $i$ has defeated or been chosen over $j$ and $m$ represents the total number of items. To derive the log-likelihood, first note the following useful definitions. First, we will define the total number of comparisons between $i$ and $j$ as $n_{ij}$ such that $n_{ij} = w_{ij} + w_{ji}$ and that $n_{ij} = n_{ji}$. Therefore, we have the following:
 
 \begin{equation} \label{eq1}
 \begin{split}
-\text{ln}L(\lambda_i) & = \sum_{i=1}^{m}\sum_{j=1}^{m} \text{ln}\bigg(\frac{\lambda_i}{\lambda_i + \lambda_j}\bigg)^{w_{ij}}\bigg) \\
-& = \sum_{i=1}^{m}\sum_{j=1}^{m} w_{ij}\text{ln}(\lambda_i) - w_{ij}\text{ln}(\lambda_i + \lambda_j) \\
-& = \sum_{i=1}^{m} -n_{ij}\text{ln}(\lambda_i + \lambda_j) + \sum_{j=1}^{m} w_{ij} \text{ln}(\lambda_i)
+	\text{ln}L(\lambda_i) & = \underset{i \neq j}{\sum_{i=1}^{m}\sum_{j=1}^{m}} \text{ln}\bigg(\frac{\lambda_i}{\lambda_i + \lambda_j}\bigg)^{w_{ij}} \\
+	& = \underset{i \neq j}{\sum_{i=1}^{m}\sum_{j=1}^{m}} w_{ij}\text{ln}(\lambda_i) - w_{ij}\text{ln}(\lambda_i + \lambda_j) \\
+	& = \sum_{i=1}^{m} w_{i}\text{ln}(\lambda_i) - \underset{i \neq j}{\sum_{j=1}^{m}} w_{ij} \text{ln}(\lambda_i + \lambda_j)
 \end{split}
 \end{equation}
 
-Using this model has several key assumptions. First, the outcomes are binary wins and losses or distinct choices between two options. There does exist modifications to Bradley-Terry models which permit ties, but those models will not be covered in this project. The interested read should see TODO: BT TIES for more detail regarding this variant of the model. \cite{TODO} The second key assumption is that latent strengths do not change over time. For some sports modeling scenarios, this may or amy not be realistic. For SaltyBet, the characters participating are not adjusted once they have been added to the database. Therefore, this assumption has been met. One additional assumption is that there exists a suffucient number of connections within the dataset to estimate the comparisons of interest. This is covered in detail in Section 3 of this paper. Finally, we also assume for this model that no external factors affect the outcome besides the latent strengths being estimated. This may not always be the case as environmental factors may play a role in the outcome of choices or sports matches. This issue leads us to our next model variant.
+Using this model has several key assumptions. First, the outcomes are binary wins and losses or distinct choices between two options. There does exist modifications to Bradley-Terry models which permit ties, but those models will not be covered in this project. The interested read should see Davidson (1970) for more detail regarding this variant of the model. \cite{davidson1970} The second key assumption is that latent strengths do not change over time. For some sports modeling scenarios, this may or amy not be realistic. For SaltyBet, the characters participating are not adjusted once they have been added to the database. Therefore, this assumption has been met. One additional assumption is that there exists a suffucient number of connections within the dataset to estimate the comparisons of interest. This is covered in detail in Section 3 of this paper. Finally, we also assume for this model that no external factors affect the outcome besides the latent strengths being estimated. This may not always be the case as environmental factors may play a role in the outcome of choices or sports matches. This issue leads us to our next model variant.
 
 \subsubsection{``Home-Field Advantage'' Model}
 
-The ``home-field advantage'' variant of Bradley-Terry modls was originally developed by Agresti in his well-known text, Categorical Data Analysis. TODO: Cite. As we mentioned previously, it is possible to view Bradley-Terry models as a specific formulation of logistic regression. It was in this context Agresti originally developed the additional effect to include a ``home-field advantage'' term in the model. This effect alters the probability statement of itnerest to a conditional statement depending on which team is currently playing at home. This effect can also be used to denote which character has a hitbox advantage by denoting the smaller hitbox character as having an ``advantage''. We will revisit the analysis of the dataset for this project using this formulation in Section 4. The altered probability statement is shown below.
-
-Agresti in his 1990 \textem{Categorical Data Analysis} included a modification to the original Bradley-terry model to include a ``home-field advantage'' effect. This effect is well-known in many sports as playing a role in the probability that a team will win. The effect works be introducing a constant term $\theta$ which acts as multiplier which captures the effect of the ``home-field advantage''. The resulting probability statement of interest is shown in equation 4. The multiplier is attached to the estimated latent strength of whichever team is currently playing at home and can be reversed easily depending on which direction probability we are interested in.
-
-%TODO: Name this equation // Include actual function
+The ``home-field advantage'' variant of Bradley-Terry modls was originally developed by Agresti in his well-known text, Categorical Data Analysis \cite{agresti2011categorical}. As we mentioned previously, it is possible to view Bradley-Terry models as a specific formulation of logistic regression. It was in this context Agresti originally developed the additional effect to include a ``home-field advantage'' term in the model. This effect alters the probability statement of itnerest to a conditional statement depending on which team is currently playing at home. This effect can also be used to denote which character has a hitbox advantage by denoting the smaller hitbox character as having an ``advantage''. We will revisit the analysis of the dataset for this project using this formulation in Section 4. The altered probability statement is shown below.
 
 \[P(i > j) = \left\{
     \begin{array}{lr}
@@ -274,25 +270,23 @@ Agresti in his 1990 \textem{Categorical Data Analysis} included a modification t
 
 We can construct a likelihood function using a process similar to the basic model. Note that in this scenario, we will differentiate between wins made by $i$ against $j$ into those wins with an advantage as $w_{ij}^{+}$ and those made without an advantage as $w_{ij}^{-}$. Therefore, the likelihood function for this case becomes:
 
-\begin{equation} \label{eq1}
+\begin{equation}
 \begin{split}
 L(\lambda_i) & = \prod_{i=1}^{m}\prod_{j=1}^{m} P(i > j) \\
- & = \prod_{i=1}^{m}\prod_{j=1}^{m} \bigg(\frac{\theta\lambda_i}{\theta\lambda_i + \lambda_j}\bigg)^{w_{ij}^{+}}\bigg(\frac{\lambda_i}{\lambda_i + \theta\lambda_j}\bigg)^{w_{ij}^{-}}\bigg)
+ & = \prod_{i=1}^{m}\prod_{j=1}^{m} \bigg(\frac{\theta\lambda_i}{\theta\lambda_i + \lambda_j}\bigg)^{w_{ij}^{+}}\bigg(\frac{\lambda_i}{\lambda_i + \theta\lambda_j}\bigg)^{w_{ij}^{-}}
 \end{split}
 \end{equation}
 
 In this case, we will make two additional defitions. First, that $w_i$ will represent the number of matches won by $i$ either advantaged or disadvantaged. We will also define $n^{+}$ as the total number of games won with an advantage. Using these definitions, we can derive a simplified log-likelihood expression.
 
-\begin{equation} \label{eq1}
+\begin{equation}
 \begin{split}
-\text{ln}L(\lambda_i) & = \sum_{i=1}^{m}\sum_{j=1}^{m} \text{ln}\bigg(\bigg(\frac{\theta\lambda_i}{\theta\lambda_i + \lambda_j}\bigg)^{w_{ij}^{+}}\bigg(\frac{\lambda_i}{\lambda_i + \theta\lambda_j}\bigg)^{w_{ij}^{-}}\bigg)\bigg) \\
+\text{ln}L(\lambda_i, \theta) & = \sum_{i=1}^{m}\sum_{j=1}^{m} \text{ln}\bigg(\bigg(\frac{\theta\lambda_i}{\theta\lambda_i + \lambda_j}\bigg)^{w_{ij}^{+}}\bigg(\frac{\lambda_i}{\lambda_i + \theta\lambda_j}\bigg)^{w_{ij}^{-}}\bigg) \\
 & = \sum_{i=1}^{m} \sum_{j=1}^{m} \text{ln}\bigg(\frac{\theta\lambda_i}{\theta\lambda_i + \lambda_j}\bigg)^{w_{ij}^{+}} + \text{ln}\bigg(\frac{\lambda_i}{\lambda_i + \theta\lambda_j}\bigg)^{w_{ij}^{-}} \\
 & = \sum_{i=1}^{m} \sum_{j=1}^{m} w_{ij}^{+}\text{ln}(\theta\lambda_i) - w_{ij}^{+}\text{ln}(\theta\lambda_i + \lambda_j) + w_{ij}^{-}\text{ln}(\lambda_i) - w_{ij}^{-}\text{ln}(\lambda_i + \theta\lambda_j) \\
 & = \sum_{i=1}^{m} \sum_{j=1}^{m} w_{ij}^{+}\text{ln}(\theta) + w_{ij}^{+}\text{ln}(\lambda_i) - w_{ij}^{+}\text{ln}(\theta\lambda_i + \lambda_j) + w_{ij}^{-}\text{ln}(\lambda_i) - w_{ij}^{-}\text{ln}(\lambda_i + \theta\lambda_j) \\
 & = n^{+}\text{ln}(\theta) + \sum_{i=1}^{m} \sum_{j=1}^{m} w_{ij}^{+}\text{ln}(\lambda_i) - w_{ij}^{+}\text{ln}(\theta\lambda_i + \lambda_j) + w_{ij}^{-}\text{ln}(\lambda_i) - w_{ij}^{-}\text{ln}(\lambda_i + \theta\lambda_j) \\
-& = n^{+}\text{ln}(\theta) + \sum_{i=1}^{m} w_{i}\text{ln}(\lambda_i) + \sum
-})
-
+& = n^{+}\text{ln}(\theta) + \sum_{i=1}^{m} w_{i}\text{ln}(\lambda_i) + \sum_{i=1}^{m} xyz \\
 \end{split}
 \end{equation}
 
@@ -302,15 +296,32 @@ With this model, there are several potential downsides. The model forces each ma
 
 The ``conditional advantage'' model is a solution to the problems addressed at the end of the previous section. In order to create the model, we simply combine the likelihood functions of both the basic Bradley-Terry formulation as well as the ``home-field advantage'' formulation of the model. The probability statement of interest is shown below.
 
-TODO: Probability statement with three conditions
+\[P(i > j) = \left\{
+    \begin{array}{lr}
+    \frac{\theta\lambda_i}{\theta\lambda_i + \lambda_j} & : \text{if } i \text{ has the advantage}\\
+		          \frac{\lambda_i}{\lambda_i + \theta\lambda_j} & : \text{if } j \text{ has the advantage}\\
+    \frac{\lambda_i}{\lambda_i + \lambda_j} & : \text{if neither } i \text{ or } j \text{ has an advantage}\\
+			    \end{array}
+			    \right.
+			    \]
 
-Using this new probabability statement in the same way the previous two likelihood functions have been derived, we see that we have the following:
+Now, it is important to note that in the case of this project, the advantages under consideration are static. That is, if a character $i$ has a hitbox advantage against character $j$, this will always be the case in each match played against each other. Therefore, exactly one of $w_{ij}^{+}, w_{ij}^{-},$ or $w_{ij}^{*}$ will be greater than zero for some combination of $i$ and $j$. In this case, $w_{ij}^{*}$ represents non-advantaged matches where the hitbox differential is such that there is no defined advantage. Using this new probabability statement in the same way the previous two likelihood functions have been derived, we see that we have the following:
 
-TODO: Likelihood function with notaiton denoting wins and loses
+\begin{equation}
+\begin{split}
+L(\lambda_i, \theta) = \underset{i \neq j}{\prod_{i=1}^{m} \prod{j=1}^{m}} \bigg(\frac{\theta\lambda_i}{\theta\lambda_i + \lambda_j}\bigg)^{w_{ij}^{+}}\bigg(\frac{\lambda_i}{\lambda_i + \theta\lambda_j}\bigg)^{w_{ij}^{-}}\bigg(\frac{\lambda_i}{\lambda_i + \lambda_j}\bigg)^{w_{ij}^{*}} \\
+\end{split}
+\end{equation}
 
 Now, we can continue the same process as before to derive a compact form for the log-likelihood function.
 
-TODO: Log-likelihood function
+\begin{equation}
+\begin{split}
+	\text{ln}L(\lambda_i, \theta) & = \underset{i \neq j}{\sum_{i=1}^{m} \sum_{j=1}^{m}} \text{ln}\bigg(\bigg(\frac{\theta\lambda_i}{\theta\lambda_i + \lambda_j}\bigg)^{w_{ij}^{+}}\bigg(\frac{\lambda_i}{\lambda_i + \theta\lambda_j}\bigg)^{w_{ij}^{-}}\bigg(\frac{\lambda_i}{\lambda_i + \lambda_j}\bigg)^{w_{ij}^{*}}\bigg) \\
+	& = \underset{i \neq j}{\sum_{i=1}^{m} \sum_{j=1}^{m}} w_{ij}^{+}\text{ln}(\theta\lambda_i) - w_{ij}^{-}\text{ln}(\theta\lambda_i + \lambda_j) + w_{ij}^{-}\text{ln}(\lambda_i) - w_{ij}^{-}\text{ln}(\lambda_i + \theta\lambda_j) + w_{ij}^{*}\text{ln}(\lambda_i) - w_{ij}^{*}\text{ln}(\lambda_i + \lambda_j) \\
+	& = n^{+}\text{ln}(\theta) + \sum_{i=1}^{m} w_{i} \text{ln}(\lambda_i) - \sum_{j=1}^{m} (w_{ij}^{+} \text{ln} (\theta\lambda_i + \lambda_j) + w_{ij}^{-}\text{ln}(\lambda_i + \theta\lambda_j) + w_{ij}^{*}\text{ln}(\lambda_i + \lambda_j) \\
+\end{split}
+\end{equation}
 
 This is the final model under consideration in this project and will serve to attempt to detect if there is a specific threshold after which hitbox advantages become predictive of match results.
 
@@ -318,9 +329,19 @@ This is the final model under consideration in this project and will serve to at
 
 \subsubsection{Maximum Likelihood Estimation}
 
-The original algorithm for estimating probabilities of paired comparisons was developed before Thurstone formulated a model in full. Zermelo in 1929 developed and proved an algorithm which converged to a unique set of parameter estimates given certain conditions were met. These conditions are discussed more fully in section X (TODO:) as an analysis of the comparison graph. The algorithm described by Zermelo is described below:
+The original algorithm for estimating probabilities of paired comparisons was developed before Thurstone formulated a model in full. Zermelo in 1929 developed and proved an algorithm which converged to a unique set of parameter estimates given certain conditions were met \cite{hunter2004mm}. These conditions are discussed more fully in section 3 as an analysis of the comparison graph. The algorithm described by Zermelo is described below:
 
-TODO: Algorithm Box
+\RestyleAlgo{boxruled}
+\LinesNumbered
+\begin{algorithm}[ht]
+	\caption{Zermelo's Algorithm\label{alg}}
+	Randomly initialize a vector s.t. $sum_{i=1}^{m}\lambda_i = 1$ and $lambda_i \geq 0$ \\
+	While not convergence criteria not met \\
+	    For $i$ in $1:m$ \\
+		$\lambda_i' = w_i \bigg(\sum_{i \neq j}\frac{n_{ij}}{\lambda_i + \lambda_j}\bigg)^{-1}$ \\
+	    Renormalize all $\lambda_i$ \\
+	Return $\lambda_i$ \\
+\end{algorithm}
 
 TODO: Discuss Algorithm Intuitively and results and connection to MLE
 
@@ -336,7 +357,7 @@ TODO: Discuss key differences
 
 \subsubsection{Bayesian Estimation Methods}
 
-While a review of classical statistical methods for estimating Bradley-Terry models have been review previously, the goal of this project is to develop a Bayesian view of Bradley-Terry models with the intent for these models to be used in conjunction with the mathematics of Markov decision processes. For this, we refer to the work of Caron and Doucet [TODO: add reference]. Their paper ``Efficient Bayesian Inference for Generalized Bradley-Terry Models" describes the construction of Gibbs samplers for both the typical comparison and ``home-field advantage'' models through the reformulation of the likelihood function via different latent variables.
+While a review of classical statistical methods for estimating Bradley-Terry models have been review previously, the goal of this project is to develop a Bayesian view of Bradley-Terry models with the intent for these models to be used in conjunction with the mathematics of Markov decision processes. For this, we refer to the work of Caron and Doucet \cite{caron2012efficient}. Their paper ``Efficient Bayesian Inference for Generalized Bradley-Terry Models" describes the construction of Gibbs samplers for both the typical comparison and ``home-field advantage'' models through the reformulation of the likelihood function via different latent variables.
 
 Classically, the latent variables of interest are the latent strength distributions which are denoted as $\lambda_i$ in the above discussion. The items of interest were then contrasts with a specific logistic regression where the coefficients are the latent strengths of each competitor. Instead of introducing this model, Caron and Doucet instead introduce the latent variable $Z_{i,j} = min(Y_{kj}, Y_{ki})$ where each $Y_kj, Y_{ki}$ is a realization from the underlying strength distribution of competitors indexed by $i$ and $j$, respectively. This allows the difference between two competitors to be captured in the new latent variable $Z_{i,j}$ as opposed to seperate latent variables $\lambda_i$ and $\lambda_j$. As is the case in other scenarios (Namely probit regression), inclusion of additional latent variables allows the model to be expressed in a sufficiently compact for to allow for Gibbs Sampling instead of requiring a more computational intensive Metropolis-Hasting algorithm for sampling. Using the latent variable formulation by Caron and Doucet, we introduce a Gibbs Sampler algorithm for each of the three model scenarios discussed above. We will not discuss the derivation of these models in detail but only setup the framework using key statements. More detailed derivations are found in the original paper by Caron and Doucet.
 
@@ -376,7 +397,7 @@ A first principles view of graph theory is beyond the scope of this paper, but t
 
 A graph can be an undirected or directed. In the case of an undirected graph, a single edge is placed between two nodes indicating a general relationship. In the case of our social network example, an undirected graph would be appropriate. Within an undirected graph, we can visualize moving between two nodes without restriction whenever any edge connects them. A directed graph adds an additional layer of information for direction. For the purposes of this project, the nodes under consideration are characters which have played at least one match on SaltyBet. Each directed edge between two characters indicates the outcome of a match where the direction will extend from the winning character to the defeated character. In the case of a directed graph, we can visualize movement between characters in the same way as an undirected graph, but our options are more restricted due to the additional layer of direction between characters.
 
-The graph we have described represents a \textem{comparison graph}. This graph defines all matches played between characters as directed edges and will be used to assess the necessary assumptions of connectivity for paired-comparison modeling. Figure 3 shows two examples of connected and disconnected directed comparison graphs in Figure 3a and Figure 3b, respectively.
+The graph we have described represents a \textit{comparison graph}. This graph defines all matches played between characters as directed edges and will be used to assess the necessary assumptions of connectivity for paired-comparison modeling. Figure 3 shows two examples of connected and disconnected directed comparison graphs in Figure 3a and Figure 3b, respectively.
 
 \begin{figure}[!ht]
 	\centering
@@ -399,7 +420,7 @@ The graph we have described represents a \textem{comparison graph}. This graph d
 
 \subsection{Condition of Strong Connectivity}
 
-The original constraint for paired-comparison data to be suitable for analysis such that all comparisons can be estimated was formulated by Ford in 1957 \cite{ford_1957}. This requirement stipulated that the comparison graph must be such that any node within the graph can be chosen and directed edges exists in such a way that movement along the existing edges admits a path to any other node in the graph. In graph theoretic terms, this condition is equivalent to \textem{strong connectivity} or stating that the comparison graph has the property of being \textem{strongly connected}. It is important to note this is a stronger statement than an undirected graph being connected as the ``one-way streets'' formed by directed edges may not necessarily form a strongly connected graph. Figure 4a shows an example of a directed graph which has an edge between all nodes but is not strongly connected. We will revisit the relationship between strong connectivity and undirected graphs shortly.
+The original constraint for paired-comparison data to be suitable for analysis such that all comparisons can be estimated was formulated by Ford in 1957 \cite{ford_1957}. This requirement stipulated that the comparison graph must be such that any node within the graph can be chosen and directed edges exists in such a way that movement along the existing edges admits a path to any other node in the graph. In graph theoretic terms, this condition is equivalent to \textit{strong connectivity} or stating that the comparison graph has the property of being \textit{strongly connected}. It is important to note this is a stronger statement than an undirected graph being connected as the ``one-way streets'' formed by directed edges may not necessarily form a strongly connected graph. Figure 4a shows an example of a directed graph which has an edge between all nodes but is not strongly connected. We will revisit the relationship between strong connectivity and undirected graphs shortly.
 
 In order to evaluate this assumption within a dataset of comparisons, we can use well known algorithms to determine the connectivity of the comparison graph. Tarjan's Algorithm \cite{tarjan_1972} by Robert Tarjan is an efficient algorithm which runs in linear time with regard to the number of nodes within a graph and determines the number of strongly connected components within a graph. Strongly connected components of a graph are disjoint subsets of nodes which are independently strongly connected despite the graph as a whole not being strongly connected. This algorithm can serve two purposes within the context of paired-comparison models. If the interest is in determining if the comparison graph is strongly connected, then the desired output from this algorithm is that the graph is constructed from one strongly connected component. However, in the event there exist more than one strongly-connected component within the graph (implying the entire graph is not strongly connected), the algorithm will return labels corresponding to disjoint sets of nodes which are strongly connected. In this case, a paired-comparison model can be fit to each of the strongly connected components identified, but comparisons across the strongly connected components will be unavailable. Figure 4a shows an example of a graph containing two strongly connected components while figure 3a shows an example of a graph being strongly connected.
 
@@ -424,7 +445,7 @@ In order to evaluate this assumption within a dataset of comparisons, we can use
 
 \subsection{Condition of Weak Connectivity}
 
-While strong connectivity of the comparison graph allows a paired-comparison model to be fit without issue, Yan discusses how using a singular perturbation method can allow for comparisons to be made when the graph is only \textem{weakly connected} \cite{yan2016ranking}. Weakly connected graphs are directed graphs which, if transformed into an undirected graph and all directed edges are made undirected, the graph is connected (or all nodes can be reached from any other node). Figure 4a shows an example of a graph which is not strongly connected but is weakly connected. In Figure 4a, we see the original directed graph with node D having only directed edges away from it. However, if we remove the direction from each of the edges, we see in Figure 4b that the undirected version of this graph is connected. One intuitive reason for why weakly connected graphs are not sufficient without modification is that one team is undefeated and without an additional measure of ``strength of win'', the magnitude of how much the latent strength of this team differs from the next best team is unknown. Another intuitive reason is that node D in Figure 4a prevents the flow of information between strongly connected components.
+While strong connectivity of the comparison graph allows a paired-comparison model to be fit without issue, Yan discusses how using a singular perturbation method can allow for comparisons to be made when the graph is only \textit{weakly connected} \cite{yan2016ranking}. Weakly connected graphs are directed graphs which, if transformed into an undirected graph and all directed edges are made undirected, the graph is connected (or all nodes can be reached from any other node). Figure 4a shows an example of a graph which is not strongly connected but is weakly connected. In Figure 4a, we see the original directed graph with node D having only directed edges away from it. However, if we remove the direction from each of the edges, we see in Figure 4b that the undirected version of this graph is connected. One intuitive reason for why weakly connected graphs are not sufficient without modification is that one team is undefeated and without an additional measure of ``strength of win'', the magnitude of how much the latent strength of this team differs from the next best team is unknown. Another intuitive reason is that node D in Figure 4a prevents the flow of information between strongly connected components.
 
 The singular perturbation method discussed by Yan is equivalent to adding a penalized term to the likelihood in such a way that a ``pseudo-loss'' to at least one other team is added to the comparison graph in order for the graph to become strongly connected. This penalizer term can be re-interpreted as a specific prior distribution. Depending on the framework being employed, the prior distribution will differ. The next section reveals why this method was not required for large datasets, but can be adapted depending on the needs of the dataset.
 

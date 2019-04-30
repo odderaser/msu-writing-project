@@ -32,6 +32,34 @@
     \warn{\item Invalid format of field 'month'}
   \endentry
 
+  \entry{agresti2011categorical}{book}{}
+    \name{author}{2}{}{%
+      {{hash=AA}{%
+         family={Agresti},
+         familyi={A\bibinitperiod},
+         given={Alan},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={Kateri},
+         familyi={K\bibinitperiod},
+         given={Maria},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{AAKM1}
+    \strng{fullhash}{AAKM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{title}{Categorical data analysis}
+    \field{year}{2011}
+  \endentry
+
   \entry{giantbomb}{misc}{}
     \field{labeltitlesource}{title}
     \field{sortinit}{A}
@@ -44,6 +72,39 @@
     \field{journaltitle}{Giant Bomb}
   \endentry
 
+  \entry{bradley_terry_1952}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BRA}{%
+         family={Bradley},
+         familyi={B\bibinitperiod},
+         given={Ralph\bibnamedelima Allan},
+         giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=TME}{%
+         family={Terry},
+         familyi={T\bibinitperiod},
+         given={Milton\bibnamedelima E.},
+         giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BRATME1}
+    \strng{fullhash}{BRATME1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.2307/2334029
+    \endverb
+    \field{number}{3/4}
+    \field{pages}{324}
+    \field{title}{Rank Analysis of Incomplete Block Designs: I. The Method of
+  Paired Comparisons}
+    \field{volume}{39}
+    \field{journaltitle}{Biometrika}
+    \field{year}{1952}
+  \endentry
+
   \entry{capcom_history}{misc}{}
     \field{labeltitlesource}{title}
     \field{sortinit}{C}
@@ -53,6 +114,39 @@
     \verb http://www.capcom.co.jp/ir/english/company/history.html
     \endverb
     \field{journaltitle}{CAPCOM IR}
+  \endentry
+
+  \entry{caron2012efficient}{article}{}
+    \name{author}{2}{}{%
+      {{hash=CF}{%
+         family={Caron},
+         familyi={C\bibinitperiod},
+         given={Francois},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=DA}{%
+         family={Doucet},
+         familyi={D\bibinitperiod},
+         given={Arnaud},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis Group}%
+    }
+    \strng{namehash}{CFDA1}
+    \strng{fullhash}{CFDA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{number}{1}
+    \field{pages}{174\bibrangedash 196}
+    \field{title}{Efficient Bayesian inference for generalized Bradley--Terry
+  models}
+    \field{volume}{21}
+    \field{journaltitle}{Journal of Computational and Graphical Statistics}
+    \field{year}{2012}
   \endentry
 
   \entry{chait_2004}{misc}{}
@@ -107,6 +201,33 @@
     \field{sortinithash}{C}
     \field{title}{Introductory graph theory}
     \field{year}{1985}
+  \endentry
+
+  \entry{davidson1970}{article}{}
+    \name{author}{1}{}{%
+      {{hash=DRR}{%
+         family={Davidson},
+         familyi={D\bibinitperiod},
+         given={Roger\bibnamedelima R},
+         giveni={R\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis Group}%
+    }
+    \strng{namehash}{DRR1}
+    \strng{fullhash}{DRR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{number}{329}
+    \field{pages}{317\bibrangedash 328}
+    \field{title}{On extending the Bradley-Terry model to accommodate ties in
+  paired comparison experiments}
+    \field{volume}{65}
+    \field{journaltitle}{Journal of the American Statistical Association}
+    \field{year}{1970}
   \endentry
 
   \entry{ford_1957}{article}{}
@@ -190,6 +311,33 @@
     \verb ew-with-the-mind-behind-twitch-plays-pok-233-mon.aspx
     \endverb
     \field{journaltitle}{Game Informer}
+  \endentry
+
+  \entry{hunter2004mm}{article}{}
+    \true{moreauthor}
+    \name{author}{1}{}{%
+      {{hash=HDR}{%
+         family={Hunter},
+         familyi={H\bibinitperiod},
+         given={David\bibnamedelima R},
+         giveni={D\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Institute of Mathematical Statistics}%
+    }
+    \strng{namehash}{HDR+1}
+    \strng{fullhash}{HDR+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{number}{1}
+    \field{pages}{384\bibrangedash 406}
+    \field{title}{MM algorithms for generalized Bradley-Terry models}
+    \field{volume}{32}
+    \field{journaltitle}{The annals of statistics}
+    \field{year}{2004}
   \endentry
 
   \entry{khuller2009finding}{inproceedings}{}
@@ -455,6 +603,32 @@
     \field{journaltitle}{12th Annual Symposium on Switching and Automata Theory
   (swat 1971)}
     \field{year}{1971}
+  \endentry
+
+  \entry{thurstone_1927}{article}{}
+    \name{author}{1}{}{%
+      {{hash=TLL}{%
+         family={Thurstone},
+         familyi={T\bibinitperiod},
+         given={L.\bibnamedelima L.},
+         giveni={L\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TLL1}
+    \strng{fullhash}{TLL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \verb{doi}
+    \verb 10.1037/h0070288
+    \endverb
+    \field{number}{4}
+    \field{pages}{273–286}
+    \field{title}{A law of comparative judgment.}
+    \field{volume}{34}
+    \field{journaltitle}{Psychological Review}
+    \field{year}{1927}
   \endentry
 
   \entry{sullygnome}{misc}{}
