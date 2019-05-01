@@ -48,6 +48,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.3}Exploratory Data Analysis}{34}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}References - Left in for... reference}{36}% 
+\contentsline {subsection}{\numberline {4.4}Prediction results of Basic Bradley-Terry model}{36}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}Code Appendix}{41}% 
+\contentsline {subsection}{\numberline {4.5}Prediction results of Advantage Bradley-Terry model}{36}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Conclusions \& Future Work}{36}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6}References}{39}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7}Code Appendix}{44}% 

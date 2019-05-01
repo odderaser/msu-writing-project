@@ -459,50 +459,51 @@ The simulation begins by generating 9,662 nodes and then randomly generating dir
 
 \subsection{Data Collection}
 
-For this project, historic matches were scraped from the SaltyBet website through the premium functionality provided. There were a total of TODO: X matches between Y characters. The scraping script was written using Python and the Selenium module [X], the code appendix contains code for scraping each match and character. Due to the restrictions placed on the number of server calls each user can make to the SaltyBet server per hour, scraping for the entire dataset took approximately TODO: Z days. Once scraped, the data were formatted and into a PostgreSQL database.
+For this project, historic matches were scraped from the SaltyBet website through the premium functionality provided. Since the site requires a login, a dynamic web scraping framework was required. For this project, Selenium was employed in order to scrape the SaltyBet website. TODO: Cite. The code appendix contains the scripts used to obtain the data. There were a total of 946172 matches between 9662 characters in the final dataset.
 
-Within saltybet, characters are divided into five distinct tiers: X, S, A, B, and P. These tiers are assigned based on the performance of each character previously. Characters are promoted or demoted based on their performance directly after a match. There are three distinct types of matches: Matchmaking, Tournament, and Exhibition. The matchmaking mode algorithmically chooses players to match up against each other where the odds are approximately equal of each character winning. Tournament mode is a random set of 16 characters from a specific tier who fight each other in a single-elimination tournament. Finally, exhibition mode is a set of viewer-requested matches which also allows teams of characters to compete. Exhibition mode games are typically chosen by viewers to force edge-case behavior of the characters. Many times, viewer requested matches result in a server crash due to intense computational loads.
-
-% TODO: Insert Table Describing Which Characters are in Which Tier
-% TODO: Describe how characters can move tiers
-% TODO:
-
-Characters were web-scraped individually and stored with the following information: Author, Life, Meter, Hitbox Width, and Hitbox Height. The scraping process for characters was similar to the process for scraping match data and the code appendix contains a modified script for character data scraping. Of all the characters scraped, TODO: X had no image associated with their profile. For the purpose of this project, we excluded these characters. The number of matches affected by this removal is TODO: Z. Figure 2 showed an example of differing hitboxes, but
-
-% TODO: Discuss Hitbox Evidence
-% TODO: Discuss Unnecessity of Time Varying Attributes
-% TODO: Discuss Relationship to ELO
-% TODO: Discuss other Data Cleaning Issues
+Within saltybet, characters are divided into five distinct tiers: X, S, A, B, and P. These tiers are assigned based on the performance of each character previously. Characters are promoted or demoted based on their performance directly after a match. There are three distinct types of matches: Matchmaking, Tournament, and Exhibition. The matchmaking mode algorithmically chooses players to match up against each other where the odds are approximately equal of each character winning. Tournament mode is a random set of 16 characters from a specific tier who fight each other in a single-elimination tournament. Finally, exhibition mode is a set of viewer-requested matches which also allows teams of characters to compete. Exhibition mode games are typically chosen by viewers to force edge-case behavior of the characters. Many times, viewer requested matches result in a server crash due to intense computational loads. Each of these factors are important as we begin to make decisions on how best to clean the data.
 
 \subsection{Data Cleaning}
 
-With the major components modeling, estimation, and diagnostic of this project discussed in detail, we begin to discuss the analysis of the SaltyBet data collected. First, we note some data cleaning steps. As discussed previously, SaltyBet consists of three phases: Matchmaking, Exhibition, and Tournament. Within the Exhibition mode teams of two characters are allowed to be requested by viewers. Since the data does not specify the makeup of each team, we remove matches which contain any team of characters. This accounts for only XYZ\% of the total number of matches. In addition, while ties are both permitted by SaltyBet and literature exists to incorporate this into the Bradley-Terry models, we remove them from this dataset for a number of reasons. First, ties are very unlikely within SaltyBet consisting of only XYZ\% of the data (XYZ matches). Second, if a tie does occur, it is typically due to either server failure or some unique attribute of the match up of characters (consider two identical characters being matched).
+With the major components modeling, estimation, and diagnostic of this project discussed in detail, we begin to discuss the analysis of the SaltyBet data collected. First, we note some data cleaning steps. As discussed previously, SaltyBet consists of three phases: Matchmaking, Exhibition, and Tournament. Within the Exhibition mode teams of two characters are allowed to be requested by viewers. Since the data does not specify the makeup of each team, we remove matches which contain any team of characters. This accounts for 84892 matches of the entire dataset. In addition, while ties are both permitted by SaltyBet and literature exists to incorporate this into the Bradley-Terry models, we remove them from this dataset for a number of reasons. First, ties are unlikely within SaltyBet consisting of only 5050 matches. Second, if a tie does occur, it is typically due to either server failure or some unique attribute of the match up of characters. Matches which consist of the same character fighting itself are removed as it is assumed no character can play itself in Bradley-Terry models. This consists of only 76 matches of the dataset.
 
-% TODO: Add percentage of team exhibition matches
-% TODO: Add percentage of ties
+When cleaning the character dataset, there are some character images which were not available. In total, there were 153 characters with missing hitbox information. These characters were removed from the dataset entirely. This resulted in a loss of an additional 28,846 matches from the dataset. 
 
 \subsection{Exploratory Data Analysis}
 
-After data cleaning, our data consists of a total of XYZ matches from a total of XYZ characters. Of all matches, XYZ characters have no losses with XYZ characters have no wins. The mean and median number of matches from each character is XYZ and XYZ, respectively. In addition, only XYZ\% have ever faced the same opponent twice. Of the characters who do face a repeat opponent, XYZ\% had at least one of the two matches requested in an exhibition match indicating that viewer intervention is the primary cause of repeat matches.
+After data cleaning, our data consists of a total of 810,422 matches from a total of 9,494 characters. The mean and median number of matches from each character is 170.77 and 156, respectively. Using Tarjan's algorithm on the comparison graph constructed from the resulting dataset, we find that the graph is not strongly connected but has 37 strongly connected components. The results of Tarjan's algorithm allows us to identify that these are due to 36 characters having been undefeated during each of their matches resulting in no path to their node within the comparison graph. Since the largest connected node consists of 9,475 characters, we will remove each of the characters which are undefeated and lower the number of characters by only 36 in order to allow the comparison graph to be fully connected.
 
-For hitbox data, the median hitbox height was XYZ pixels while the median hitbox width was XYZ pixels. Figure Z1 shows a density plot of each characters hitbox height and width. Of the XYZ characters within the cleaned dataset, XYZ\% fall within 10 pixels of the median height and width.
+For hitbox data, the median hitbox height was 110 pixels while the median hitbox width was 80 pixels. Figure 5 shows a density plot of each characters hitbox height and width. Of the 9,475 characters within the cleaned dataset, XYZ\% fall within 10 pixels of the median height and width. The suspected hitbox advantage can be seen in the pull in the kernel density estimation towards zero away from the peak at the median height and width. 
 
-% TODO: Add percentage of team exhibition matches
-% TODO: Total number of matches after data cleaning
-% TODO: total number of characters after data cleaning
-% TODO: total number of characters with no losses after data cleaning
-% TODO: total number of characters with no wins after data cleaning
-% TODO: mean number of matches from each character after data cleaning
-% TODO: median number of matches from each character after data cleaning
-% TODO: percent of characters who have faced repeat opponents
-% TODO: percent of characters who have faced repeat opponents within exhibition mode
+Since the goal of this project is to accurately predict results from each match, we must define an appropriate loss function in order to evaluate the performance of the two models under consideration. For our model, we would like to penalize both incorrect decisions and uncertainty. For this, we will use the loss function provided below. In order to intuitively understand the loss function, consider a few examples. First, suppose we predict the probability an event while occur as $p = 1$. If we are incorrect, our loss will be infinite due to the logarithm of zero being mathematically undefined at infinity. Likewise, if the opposite situation occurs we also obtain an infinite loss. Therefore, we are forced to express some uncertainty about the event in the form of $p$ being bounded between zero and one. One potentially safe strategy is to simply choose $p = 0.5$ for each match. This could be a sound strategy except that the loss function is maximized at the value of $p = 0.5$ when not equal to zero or one. Therefore, this loss function will penalize for incorrect decicions but also the amount of uncertainty around correct decisions. 
+
+\[ f(p) = log(p) - log(1-p) \]
+TODO: Discuss splitting dataset into train and test
+TODO: Loss function
+
+\subsection{Prediction results of Basic Bradley-Terry model}
+
+TODO: Discuss model fitting, evaluation, etc
+
+Using the basic Bradley-Terry formulation we fit the model using code developed by Coran and Doucet for their paper. We evaluate the result of the model using the estimated latent strengths of each character and the associated probability statement to obtain an estimated value of $p$ for a given match. Over the set of 10,000 training matches, we have a total loss of XYZ found over the entire results.
+
+\subsection{Prediction results of Advantage Bradley-Terry model}
 
 
+\section{Conclusions \& Future Work}
+
+In this project, we reviewed two specific formulations of paired-comparison models. First, we developed the background around the basic Bradley-Terry model and then discussed in more detail the ``home-field advantage'' model developed by Agresti. We reviewed estimation techniques for both models including the original algorithm developed by Zermelo and continuing on to the general class of Minorization-Maximization algorithms discussed in detail by Hunter. We ended our estimation discussion with a detailed look at methods for efficient Bayesian estimation of Bradley-Terry models by summarizing the work of Coran and Doucet. In this paper, we discussed the Gibbs samplers developed for both the basic and ``home-field advantage'' models which were made possible by a specific latent variable definition. 
+
+Before begin prediction of our own, we reviewed the necessary assumptions required of the comparison graph constructed from the dataset. Specifically, we defined two different types of connectivity associated with graphs known as strong-connectivity and weak-connectivity and discussed their interpretations and implications on paired-comparion datasets. Finally, we discussed how to determine if assumptions of connectivity are met using Tarjan's algorithm and reviewed the work of Yao in the case of only having weak connectivity. Examples of different types of connectivity were shown and discussed visually.
+
+Finally, we used the theory developed in the project to perform a large scale prediction project using SaltyBet data. Both the basic and ``home-field advantage'' model were employed where the advantage in this context was determined by each characters relative hitbox size. We found that...
+
+There are many possibilities for future work surrounding this project. The first and most obvious approach is to begin to develop the theory of Markov decision processes around the models used in this project. This would require modeling other bettors and overall betting behavior on SaltyBet.com. Contiuing from here, there are many additional facets of hitbox advantage to consider. Specifically, can models be developed in order to account for more specific hitbox advantages beyond just measuring which character has a larger hitbox? Another possibility is that a more in-depth analysis of the images for each character is conducted in an attempt to classify the fighting style of each character to determine if it is predictive of suspectibability to hitbox advantages or if the style is resistant due to area-of-effect style attacks.
 
 \nocite{*}
 
 \newpage
-\section{References - Left in for... reference}
+\section{References}
 \printbibliography
 
 \newpage
@@ -510,9 +511,8 @@ For hitbox data, the median hitbox height was XYZ pixels while the median hitbox
 
 \singlespacing
 \begin{lstlisting}
-All that sweet sweet R code.
 
-Verbatim would also work here I think.
+The code appendix for this project can be found online at github.com/EriqLaplus/msu-writing-project.
 
 \end{lstlisting}
 \end{document}
