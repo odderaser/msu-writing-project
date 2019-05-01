@@ -463,20 +463,23 @@ After data cleaning, our data consists of a total of 810,422 matches from a tota
 
 For hitbox data, the median hitbox height was 110 pixels while the median hitbox width was 80 pixels. Figure 5 shows a density plot of each characters hitbox height and width. Of the 9,475 characters within the cleaned dataset, XYZ\% fall within 10 pixels of the median height and width. The suspected hitbox advantage can be seen in the pull in the kernel density estimation towards zero away from the peak at the median height and width. 
 
-Since the goal of this project is to accurately predict results from each match, we must define an appropriate loss function in order to evaluate the performance of the two models under consideration. For our model, we would like to penalize both incorrect decisions and uncertainty. For this, we will use the loss function provided below. In order to intuitively understand the loss function, consider a few examples. First, suppose we predict the probability an event while occur as $p = 1$. If we are incorrect, our loss will be infinite due to the logarithm of zero being mathematically undefined at infinity. Likewise, if the opposite situation occurs we also obtain an infinite loss. Therefore, we are forced to express some uncertainty about the event in the form of $p$ being bounded between zero and one. One potentially safe strategy is to simply choose $p = 0.5$ for each match. This could be a sound strategy except that the loss function is maximized at the value of $p = 0.5$ when not equal to zero or one. Therefore, this loss function will penalize for incorrect decicions but also the amount of uncertainty around correct decisions. 
+Since the goal of this project is to accurately predict results from each match, we must define an appropriate loss function in order to evaluate the performance of the two models under consideration. For our model, we would like to penalize both incorrect decisions and uncertainty. For this, we will use the log loss function as shown below. In order to intuitively understand the log loss function, consider a few examples. First, suppose we predict the probability an event while occur as $p = 1$. If we are incorrect, our loss will be infinite due to the logarithm of zero being mathematically undefined at infinity. Likewise, if the opposite situation occurs we also obtain an infinite loss. Therefore, we are forced to express some uncertainty about the event in the form of $p$ being bounded between zero and one. One potentially safe strategy is to simply choose $p = 0.5$ for each match. This could be a sound strategy except that the loss function is maximized at the value of $p = 0.5$ when not equal to zero or one. Therefore, this loss function will penalize for incorrect decicions but also the amount of uncertainty around correct decisions. 
 
-\[ f(p) = log(p) - log(1-p) \]
-TODO: Discuss splitting dataset into train and test
-TODO: Loss function
+\[ \text{LogLoss}(p) = ylog(p) - (1-y)log(1-p) \]
+
+In order to test the predictive models constructed, the dataset is divided into training and test sets. The test set consists of 10,000 randomly sampled matches from the cleaned dataset while the training set consists of the remainder of the data. Each model is fit using the training set and the log loss function is evaluated for each prediction of the 10,000 overall. Two metrics are examined as part of the prediction: the median log loss of each match prediction as well as the cumulative log loss over all matches.    
 
 \subsection{Prediction results of Basic Bradley-Terry model}
 
-TODO: Discuss model fitting, evaluation, etc
-
-Using the basic Bradley-Terry formulation we fit the model using code developed by Coran and Doucet for their paper. We evaluate the result of the model using the estimated latent strengths of each character and the associated probability statement to obtain an estimated value of $p$ for a given match. Over the set of 10,000 training matches, we have a total loss of XYZ found over the entire results.
+Using the basic Bradley-Terry formulation we fit the model using code developed by Coran and Doucet for their publication. In order to fit the model, we construct a comparison graph from the dataset provided. We provide this to the model as a dataset and perform 10,000 iterations of sampling with a 1,000 iteration burn-in period. Since we are evaluating a large number of parameters for conergence simultaneously, we examine the trace plots of the model in the appendix by divding the model parameters into sections for easier viewing. The model shows no concerns with convergence. We evaluate the result of the model using the estimated latent strengths of each character and the associated probability statement to obtain an estimated value of $p$ for a given match. Over the set of 10,000 test matches, we have a median loss of XYZ and a cumulative loss of ABC. We will first fit and predict the same dataset using the ``home-field advantage'' model and then compare the results between the two.
 
 \subsection{Prediction results of Advantage Bradley-Terry model}
 
+Again, we turn to the code developed by Coran and Doucet for their publication to fit this model. The dataset required by this model differs in that a comparison graph needs to be constructed for the two different types of matches which are permitted: advantaged and disadvantaged matches. Therefore, we construct a comparison graph of each character when they had advantaged wins and another for when they had disadvantaged wins. If these two matrices are summed, we obtain the win matrix used in the basic formulation of this model. Again, we see no issues with convergence by dividing the parameters out into sections to obtain a better view of convergence in the appendix. Performing the same test as before, we see that we have a median loss of XYZ and a cumulative loss of ABC over the 10,000 test matches. A histogram of the posterior distribution of $\lambda$, the advantage term, is shown in Figure 6. 
+
+TODO: Include histogram
+
+TODO: Compare and Constrast
 
 \section{Conclusions \& Future Work}
 

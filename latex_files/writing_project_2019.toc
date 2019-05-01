@@ -32,9 +32,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.1}Comparison Graph Definition}{24}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2}Condition of Strong Connectivity}{27}% 
+\contentsline {subsection}{\numberline {3.2}Condition of Strong Connectivity}{26}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3}Condition of Weak Connectivity}{28}% 
+\contentsline {subsection}{\numberline {3.3}Condition of Weak Connectivity}{29}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.4}Simulation of Graph Connectivity}{30}% 
 \defcounter {refsection}{0}\relax 
@@ -46,12 +46,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.3}Exploratory Data Analysis}{34}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4}Prediction results of Basic Bradley-Terry model}{35}% 
+\contentsline {subsection}{\numberline {4.4}Prediction results of Basic Bradley-Terry model}{36}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.5}Prediction results of Advantage Bradley-Terry model}{36}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Conclusions \& Future Work}{36}% 
+\contentsline {section}{\numberline {5}Conclusions \& Future Work}{37}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}References}{38}% 
+\contentsline {section}{\numberline {6}References}{40}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}Code Appendix}{43}% 
+\contentsline {section}{\numberline {7}Code Appendix}{45}% 

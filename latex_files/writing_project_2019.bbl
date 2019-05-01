@@ -149,6 +149,35 @@
     \field{year}{2012}
   \endentry
 
+  \entry{casella2002statistical}{book}{}
+    \name{author}{2}{}{%
+      {{hash=CG}{%
+         family={Casella},
+         familyi={C\bibinitperiod},
+         given={George},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=BRL}{%
+         family={Berger},
+         familyi={B\bibinitperiod},
+         given={Roger\bibnamedelima L},
+         giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Duxbury Pacific Grove, CA}%
+    }
+    \strng{namehash}{CGBRL1}
+    \strng{fullhash}{CGBRL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{Statistical inference}
+    \field{volume}{2}
+    \field{year}{2002}
+  \endentry
+
   \entry{chait_2004}{misc}{}
     \name{author}{2}{}{%
       {{hash=CPC}{%
@@ -230,45 +259,6 @@
     \field{year}{1970}
   \endentry
 
-  \entry{dutta2017identifying}{article}{}
-    \name{author}{3}{}{%
-      {{hash=DS}{%
-         family={Dutta},
-         familyi={D\bibinitperiod},
-         given={Shouvik},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=JSH}{%
-         family={Jacobson},
-         familyi={J\bibinitperiod},
-         given={Sheldon\bibnamedelima H},
-         giveni={S\bibinitperiod\bibinitdelim H\bibinitperiod},
-      }}%
-      {{hash=SJJ}{%
-         family={Sauppe},
-         familyi={S\bibinitperiod},
-         given={Jason\bibnamedelima J},
-         giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {De Gruyter}%
-    }
-    \strng{namehash}{DSJSHSJJ1}
-    \strng{fullhash}{DSJSHSJJ1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{D}
-    \field{sortinithash}{D}
-    \field{number}{2}
-    \field{pages}{79\bibrangedash 93}
-    \field{title}{Identifying NCAA tournament upsets using Balance Optimization
-  Subset Selection}
-    \field{volume}{13}
-    \field{journaltitle}{Journal of Quantitative Analysis in Sports}
-    \field{year}{2017}
-  \endentry
-
   \entry{ford_1957}{article}{}
     \name{author}{1}{}{%
       {{hash=FLR}{%
@@ -293,6 +283,39 @@
     \field{volume}{64}
     \field{journaltitle}{The American Mathematical Monthly}
     \field{year}{1957}
+  \endentry
+
+  \entry{gelman1992inference}{article}{}
+    \true{moreauthor}
+    \name{author}{2}{}{%
+      {{hash=GA}{%
+         family={Gelman},
+         familyi={G\bibinitperiod},
+         given={Andrew},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=RDB}{%
+         family={Rubin},
+         familyi={R\bibinitperiod},
+         given={Donald\bibnamedelima B},
+         giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Institute of Mathematical Statistics}%
+    }
+    \strng{namehash}{GARDB+1}
+    \strng{fullhash}{GARDB+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{number}{4}
+    \field{pages}{457\bibrangedash 472}
+    \field{title}{Inference from iterative simulation using multiple sequences}
+    \field{volume}{7}
+    \field{journaltitle}{Statistical science}
+    \field{year}{1992}
   \endentry
 
   \entry{rps}{misc}{}
@@ -327,6 +350,28 @@
     \field{sortinithash}{H}
     \field{title}{Statistical Digital Signal Processing and Modeling}
     \field{year}{2014}
+  \endentry
+
+  \entry{heiser1995convergent}{article}{}
+    \name{author}{1}{}{%
+      {{hash=HWJ}{%
+         family={Heiser},
+         familyi={H\bibinitperiod},
+         given={Willem\bibnamedelima J},
+         giveni={W\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HWJ1}
+    \strng{fullhash}{HWJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{pages}{157\bibrangedash 189}
+    \field{title}{Convergent computation by iterative majorization: theory and
+  applications in multidimensional data analysis}
+    \field{journaltitle}{Recent advances in descriptive multivariate analysis}
+    \field{year}{1995}
   \endentry
 
   \entry{hilliard}{misc}{}
@@ -430,6 +475,44 @@
     \field{sortinithash}{K}
     \field{title}{Decision making under uncertainty: theory and application}
     \field{year}{2015}
+  \endentry
+
+  \entry{lange2000optimization}{article}{}
+    \name{author}{3}{}{%
+      {{hash=LK}{%
+         family={Lange},
+         familyi={L\bibinitperiod},
+         given={Kenneth},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=HDR}{%
+         family={Hunter},
+         familyi={H\bibinitperiod},
+         given={David\bibnamedelima R},
+         giveni={D\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=YI}{%
+         family={Yang},
+         familyi={Y\bibinitperiod},
+         given={Ilsoon},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis}%
+    }
+    \strng{namehash}{LKHDRYI1}
+    \strng{fullhash}{LKHDRYI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{number}{1}
+    \field{pages}{1\bibrangedash 20}
+    \field{title}{Optimization transfer using surrogate objective functions}
+    \field{volume}{9}
+    \field{journaltitle}{Journal of computational and graphical statistics}
+    \field{year}{2000}
   \endentry
 
   \entry{miller_2013}{misc}{}
@@ -549,39 +632,6 @@
     \field{journaltitle}{ESPN}
     \field{year}{2015}
     \warn{\item Invalid format of field 'month'}
-  \endentry
-
-  \entry{ruiz2015generative}{article}{}
-    \name{author}{2}{}{%
-      {{hash=RFJ}{%
-         family={Ruiz},
-         familyi={R\bibinitperiod},
-         given={Francisco\bibnamedelima JR},
-         giveni={F\bibinitperiod\bibinitdelim J\bibinitperiod},
-      }}%
-      {{hash=PCF}{%
-         family={Perez-Cruz},
-         familyi={P\bibinithyphendelim C\bibinitperiod},
-         given={Fernando},
-         giveni={F\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {De Gruyter}%
-    }
-    \strng{namehash}{RFJPCF1}
-    \strng{fullhash}{RFJPCF1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{R}
-    \field{sortinithash}{R}
-    \field{number}{1}
-    \field{pages}{39\bibrangedash 52}
-    \field{title}{A generative model for predicting outcomes in college
-  basketball}
-    \field{volume}{11}
-    \field{journaltitle}{Journal of Quantitative Analysis in Sports}
-    \field{year}{2015}
   \endentry
 
   \entry{sbtwitter}{misc}{}
@@ -751,6 +801,28 @@
     \endverb
     \field{journaltitle}{Thomas Welsh}
     \field{year}{2013}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{twhelan2010}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=WJT}{%
+         family={Whelan},
+         familyi={W\bibinitperiod},
+         given={John.\bibnamedelima T},
+         giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WJT1}
+    \strng{fullhash}{WJT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{howpublished}{Talk}
+    \field{title}{Using Bayesian statistics to rank sports teams (or, my
+  replacement for the BCS)}
+    \field{year}{2010}
     \warn{\item Invalid format of field 'month'}
   \endentry
 
