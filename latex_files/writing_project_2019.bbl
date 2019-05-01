@@ -230,6 +230,45 @@
     \field{year}{1970}
   \endentry
 
+  \entry{dutta2017identifying}{article}{}
+    \name{author}{3}{}{%
+      {{hash=DS}{%
+         family={Dutta},
+         familyi={D\bibinitperiod},
+         given={Shouvik},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=JSH}{%
+         family={Jacobson},
+         familyi={J\bibinitperiod},
+         given={Sheldon\bibnamedelima H},
+         giveni={S\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+      {{hash=SJJ}{%
+         family={Sauppe},
+         familyi={S\bibinitperiod},
+         given={Jason\bibnamedelima J},
+         giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {De Gruyter}%
+    }
+    \strng{namehash}{DSJSHSJJ1}
+    \strng{fullhash}{DSJSHSJJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{number}{2}
+    \field{pages}{79\bibrangedash 93}
+    \field{title}{Identifying NCAA tournament upsets using Balance Optimization
+  Subset Selection}
+    \field{volume}{13}
+    \field{journaltitle}{Journal of Quantitative Analysis in Sports}
+    \field{year}{2017}
+  \endentry
+
   \entry{ford_1957}{article}{}
     \name{author}{1}{}{%
       {{hash=FLR}{%
@@ -510,6 +549,39 @@
     \field{journaltitle}{ESPN}
     \field{year}{2015}
     \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{ruiz2015generative}{article}{}
+    \name{author}{2}{}{%
+      {{hash=RFJ}{%
+         family={Ruiz},
+         familyi={R\bibinitperiod},
+         given={Francisco\bibnamedelima JR},
+         giveni={F\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=PCF}{%
+         family={Perez-Cruz},
+         familyi={P\bibinithyphendelim C\bibinitperiod},
+         given={Fernando},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {De Gruyter}%
+    }
+    \strng{namehash}{RFJPCF1}
+    \strng{fullhash}{RFJPCF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{number}{1}
+    \field{pages}{39\bibrangedash 52}
+    \field{title}{A generative model for predicting outcomes in college
+  basketball}
+    \field{volume}{11}
+    \field{journaltitle}{Journal of Quantitative Analysis in Sports}
+    \field{year}{2015}
   \endentry
 
   \entry{sbtwitter}{misc}{}
