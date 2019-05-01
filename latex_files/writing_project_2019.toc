@@ -20,21 +20,19 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.1.1}``Home-Field Advantage'' Model}{15}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.2}``Conditional Home-Field Advantage''}{18}% 
+\contentsline {subsection}{\numberline {2.2}Model Estimation}{18}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2}Model Estimation}{19}% 
+\contentsline {subsubsection}{\numberline {2.2.1}Maximum Likelihood Estimation}{18}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.1}Maximum Likelihood Estimation}{19}% 
+\contentsline {subsubsection}{\numberline {2.2.2}Minorization-Maximization Algorithms}{19}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.2}Minorization-Maximization Algorithms}{20}% 
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.3}Bayesian Estimation Methods}{21}% 
+\contentsline {subsubsection}{\numberline {2.2.3}Bayesian Estimation Methods}{20}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3}Comparison Graph Connectivity}{24}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.1}Comparison Graph Definition}{24}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2}Condition of Strong Connectivity}{26}% 
+\contentsline {subsection}{\numberline {3.2}Condition of Strong Connectivity}{27}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3}Condition of Weak Connectivity}{28}% 
 \defcounter {refsection}{0}\relax 
@@ -48,12 +46,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.3}Exploratory Data Analysis}{34}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4}Prediction results of Basic Bradley-Terry model}{36}% 
+\contentsline {subsection}{\numberline {4.4}Prediction results of Basic Bradley-Terry model}{35}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.5}Prediction results of Advantage Bradley-Terry model}{36}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5}Conclusions \& Future Work}{36}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}References}{39}% 
+\contentsline {section}{\numberline {6}References}{38}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}Code Appendix}{44}% 
+\contentsline {section}{\numberline {7}Code Appendix}{43}% 

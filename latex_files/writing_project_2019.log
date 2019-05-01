@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.4.29)  30 APR 2019 20:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.4.29)  30 APR 2019 21:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -419,80 +419,63 @@ Package biblatex Info: ... file 'biblatex.cfg' found.
 (/usr/share/texmf-dist/tex/latex/biblatex/biblatex.cfg
 File: biblatex.cfg 
 ))
-(/usr/share/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
-Package: algorithm2e 2017/07/18 v5.2 algorithms environments
-\c@AlgoLine=\count293
-\algocf@hangindent=\skip69
+(/usr/share/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
 
-(/usr/share/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
-Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
-\c@checkoddpage=\count294
+(/usr/share/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count293
+\float@exts=\toks22
+\float@box=\box29
+\@float@everytoks=\toks23
+\@floatcapt=\box30
 )
-(/usr/share/texmf-dist/tex/latex/tools/xspace.sty
-Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+\@float@every@algorithm=\toks24
+\c@algorithm=\count294
 )
-(/usr/share/texmf-dist/tex/latex/relsize/relsize.sty
-Package: relsize 2013/03/29 ver 4.1
+(/usr/share/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
+
+(/usr/share/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count295
+\c@ALG@rem=\count296
+\c@ALG@nested=\count297
+\ALG@tlm=\skip69
+\ALG@thistlm=\skip70
+\c@ALG@Lnr=\count298
+\c@ALG@blocknr=\count299
+\c@ALG@storecount=\count300
+\c@ALG@tmpcounter=\count301
+\ALG@tmplength=\skip71
 )
-\skiptotal=\skip70
-\skiplinenumber=\skip71
-\skiprule=\skip72
-\skiphlne=\skip73
-\skiptext=\skip74
-\skiplength=\skip75
-\algomargin=\skip76
-\skipalgocfslide=\skip77
-\algowidth=\dimen125
-\inoutsize=\dimen126
-\inoutindent=\dimen127
-\interspacetitleruled=\dimen128
-\interspacealgoruled=\dimen129
-\interspacetitleboxruled=\dimen130
-\algocf@ruledwidth=\skip78
-\algocf@inoutbox=\box29
-\algocf@inputbox=\box30
-\AlCapSkip=\skip79
-\AlCapHSkip=\skip80
-\algoskipindent=\skip81
-\algocf@nlbox=\box31
-\algocf@hangingbox=\box32
-\algocf@untilbox=\box33
-\algocf@skipuntil=\skip82
-\algocf@capbox=\box34
-\algocf@lcaptionbox=\skip83
-\algoheightruledefault=\skip84
-\algoheightrule=\skip85
-\algotitleheightruledefault=\skip86
-\algotitleheightrule=\skip87
-\c@algocfline=\count295
-\c@algocfproc=\count296
-\c@algocf=\count297
-\algocf@algoframe=\box35
-\algocf@algobox=\box36
-)
-(/usr/share/texmf-dist/tex/latex/upquote/upquote.sty
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/share/texmf-dist/tex/latex/upquote/upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
 )
 (/usr/share/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count298
-\lst@gtempboxa=\box37
-\lst@token=\toks22
-\lst@length=\count299
-\lst@currlwidth=\dimen131
-\lst@column=\count300
-\lst@pos=\count301
-\lst@lostspace=\dimen132
-\lst@width=\dimen133
-\lst@newlines=\count302
-\lst@lineno=\count303
-\lst@maxwidth=\dimen134
+\lst@mode=\count302
+\lst@gtempboxa=\box31
+\lst@token=\toks25
+\lst@length=\count303
+\lst@currlwidth=\dimen125
+\lst@column=\count304
+\lst@pos=\count305
+\lst@lostspace=\dimen126
+\lst@width=\dimen127
+\lst@newlines=\count306
+\lst@lineno=\count307
+\lst@maxwidth=\dimen128
 
 (/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2018/09/02 1.7 (Carsten Heinz)
-\c@lstnumber=\count304
-\lst@skipnumbers=\count305
-\lst@framebox=\box38
+\c@lstnumber=\count308
+\lst@skipnumbers=\count309
+\lst@framebox=\box32
 )
 (/usr/share/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2018/09/02 1.7 listings configuration
@@ -514,12 +497,18 @@ Package biblatex Info: ... file 'english.lbx' found.
 (/usr/share/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 File: english.lbx 2018/11/02 v3.12 biblatex localization (PK/MW)
 )
-\@quotelevel=\count306
-\@quotereset=\count307
+\@quotelevel=\count310
+\@quotereset=\count311
 
 (./writing_project_2019.aux
 
 LaTeX Warning: Label `eq1' multiply defined.
+
+
+LaTeX Warning: Label `euclidendwhile' multiply defined.
+
+
+LaTeX Warning: Label `euclidendwhile' multiply defined.
 
 
 LaTeX Warning: Label `fig:sub1' multiply defined.
@@ -565,17 +554,17 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
 LaTeX Font Info:    ... okay on input line 75.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count308
-\scratchdimen=\dimen135
-\scratchbox=\box39
-\nofMPsegments=\count309
-\nofMParguments=\count310
-\everyMPshowfont=\toks23
-\MPscratchCnt=\count311
-\MPscratchDim=\dimen136
-\MPnumerator=\count312
-\makeMPintoPDFobject=\count313
-\everyMPtoPDFconversion=\toks24
+\scratchcounter=\count312
+\scratchdimen=\dimen129
+\scratchbox=\box33
+\nofMPsegments=\count313
+\nofMParguments=\count314
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count315
+\MPscratchDim=\dimen130
+\MPnumerator=\count316
+\makeMPintoPDFobject=\count317
+\everyMPtoPDFconversion=\toks27
 ) (/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -597,6 +586,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package biblatex Info: Input encoding 'utf8' detected.
@@ -826,7 +816,7 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
-\c@lstlisting=\count314
+\c@lstlisting=\count318
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
@@ -897,38 +887,29 @@ Overfull \hbox (54.65411pt too wide) detected at line 291
  []
 
 [16] [17] [18]
-Overfull \hbox (148.02213pt too wide) detected at line 324
-[]
- []
 
-[19] [20] [21] [22] [23]
-! Undefined control sequence.
-l.382 ...z_{i,j}; n_{ij}, \lambda_i + \lambda_j)\I
-                                                  (\theta <= C_{hitbox}) + \...
-
-? 
-
-Overfull \hbox (5.11687pt too wide) in paragraph at lines 382--383
-[]$\OML/cmm/m/it/12 Z[] \OT1/cmr/m/n/12 = [][] \OML/cmm/m/it/12 G\OT1/cmr/m/n/1
-2 (\OML/cmm/m/it/12 z[]\OT1/cmr/m/n/12 ; \OML/cmm/m/it/12 n[]; ^^U[] \OT1/cmr/m
-/n/12 + \OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/12 )(\OML/cmm/m/it/12 ^^R <\OT1/cmr/
-m/n/12 = \OML/cmm/m/it/12 C[]\OT1/cmr/m/n/12 ) + [][] \OML/cmm/m/it/12 G\OT1/cm
-r/m/n/12 (\OML/cmm/m/it/12 z[]\OT1/cmr/m/n/12 ; \OML/cmm/m/it/12 n[]^^R^^U[] \O
-T1/cmr/m/n/12 + \OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 I\OT1/c
-mr/m/n/12 (\OML/cmm/m/it/12 ^^R >
- []
+LaTeX Warning: Citation 'lange2000optimization' on page 19 undefined on input l
+ine 318.
 
 
-Overfull \hbox (1.34561pt too wide) in paragraph at lines 386--387
-[]$\OML/cmm/m/it/12 Z[]\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 D; ^^U[]; ^^R[] \OMS/
-cmsy/m/n/12 ^^X \OML/cmm/m/it/12 G\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 n[]; ^^R[]^
-^U[] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 
-OR \OMS/cmsy/m/n/12 ^^X \OML/cmm/m/it/12 G\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 n[]
-; ^^U[] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/12 )$ 
- []
+LaTeX Warning: Citation 'heiser1995convergent' on page 19 undefined on input li
+ne 318.
 
-[24] [25]
-Overfull \hbox (3.68619pt too wide) in paragraph at lines 400--401
+[19] [20]
+
+LaTeX Warning: Citation 'casella2002statistical' on page 21 undefined on input 
+line 330.
+
+[21]
+
+LaTeX Warning: Citation 'twhelan2010' on page 22 undefined on input line 332.
+
+
+LaTeX Warning: Citation 'gelman1992inference' on page 22 undefined on input lin
+e 354.
+
+[22] [23] [24] [25]
+Overfull \hbox (3.68619pt too wide) in paragraph at lines 388--389
 \OT1/cmr/m/n/12 used to as-sess the nec-es-sary as-sump-tions of con-nec-tiv-it
 y for paired-comparison
  []
@@ -937,21 +918,21 @@ y for paired-comparison
 File: ../images/SampleConnectedGraph.png Graphic file (type png)
 <use ../images/SampleConnectedGraph.png>
 Package pdftex.def Info: ../images/SampleConnectedGraph.png  used on input line
- 407.
+ 395.
 (pdftex.def)             Requested size: 165.92114pt x 120.75204pt.
 <../images/SampleDisconnectedGraph.png, id=111, 553.06625pt x 402.50375pt>
 File: ../images/SampleDisconnectedGraph.png Graphic file (type png)
 <use ../images/SampleDisconnectedGraph.png>
 Package pdftex.def Info: ../images/SampleDisconnectedGraph.png  used on input l
-ine 414.
+ine 402.
 (pdftex.def)             Requested size: 165.92114pt x 120.75204pt.
-[26] [27 <../images/SampleConnectedGraph.png> <../images/SampleDisconnectedGrap
-h.png>]
+[26 <../images/SampleConnectedGraph.png> <../images/SampleDisconnectedGraph.png
+>] [27]
 <../images/SampleWeaklyConnectedGraph.png, id=121, 553.06625pt x 402.50375pt>
 File: ../images/SampleWeaklyConnectedGraph.png Graphic file (type png)
 <use ../images/SampleWeaklyConnectedGraph.png>
 Package pdftex.def Info: ../images/SampleWeaklyConnectedGraph.png  used on inpu
-t line 432.
+t line 420.
 (pdftex.def)             Requested size: 165.92114pt x 120.75204pt.
 <../images/SampleUndirectedWeaklyConnectedGraph.png, id=122, 553.06625pt x 402.
 50375pt>
@@ -959,72 +940,80 @@ File: ../images/SampleUndirectedWeaklyConnectedGraph.png Graphic file (type png
 )
 <use ../images/SampleUndirectedWeaklyConnectedGraph.png>
 Package pdftex.def Info: ../images/SampleUndirectedWeaklyConnectedGraph.png  us
-ed on input line 439.
+ed on input line 427.
 (pdftex.def)             Requested size: 165.92114pt x 120.75204pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (2.57231pt too wide) in paragraph at lines 448--449
+Overfull \hbox (2.57231pt too wide) in paragraph at lines 436--437
 \OT1/cmr/m/n/12 While strong con-nec-tiv-ity of the com-par-i-son graph al-lows
  a paired-comparison
  []
 
 [28]
-Overfull \hbox (2.96397pt too wide) in paragraph at lines 450--451
+Overfull \hbox (2.96397pt too wide) in paragraph at lines 438--439
 []\OT1/cmr/m/n/12 The sin-gu-lar per-tur-ba-tion method dis-cussed by Yan is eq
 uiv-a-lent to adding
  []
 
 [29 <../images/SampleWeaklyConnectedGraph.png> <../images/SampleUndirectedWeakl
 yConnectedGraph.png>] [30] [31] [32] [33] [34] [35]
-Overfull \hbox (16.07124pt too wide) in paragraph at lines 490--490
+Overfull \hbox (16.07124pt too wide) in paragraph at lines 478--478
 []\OT1/cmr/bx/n/14.4 Prediction re-sults of Ad-van-tage Bradley-Terry model 
  []
 
-[36] [37] [38]
-Overfull \hbox (18.33662pt too wide) in paragraph at lines 508--508
+[36] [37]
+Overfull \hbox (18.33662pt too wide) in paragraph at lines 496--496
 \OT1/cmr/m/n/12 plete Block De-signs: I. The Method of Paired Com-par-isons''. 
 In: \OT1/cmr/m/it/12 Biometrika
  []
 
 
-Overfull \hbox (19.13066pt too wide) in paragraph at lines 508--508
+Overfull \hbox (19.13066pt too wide) in paragraph at lines 496--496
 \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / www . nytim
 es . com / 2004 / 12 / 12 / magazine / sabermetrics -[]
  []
 
-[39]
-Overfull \hbox (0.5106pt too wide) in paragraph at lines 508--508
+[38]
+Overfull \hbox (0.5106pt too wide) in paragraph at lines 496--496
 []\OT1/cmr/m/it/12 Have You Played... Salty Bet? \OT1/cmr/m/sc/12 url\OT1/cmr/m
 /n/12 : $\OT1/cmtt/m/n/12 https : / / www . rockpapershotgun .
  []
 
 
-Overfull \hbox (18.1679pt too wide) in paragraph at lines 508--508
+Overfull \hbox (18.1679pt too wide) in paragraph at lines 496--496
 []\OT1/cmr/m/n/12 Kyle Hilliard. \OT1/cmr/m/it/12 An In-ter-view With The Mind 
 Be-hind Twitch Plays Pok^^Semon\OT1/cmr/m/n/12 .
  []
 
-[40] [41]
-Overfull \hbox (23.10529pt too wide) in paragraph at lines 508--508
+[39] [40]
+Overfull \hbox (23.10529pt too wide) in paragraph at lines 496--496
 []\OT1/cmr/m/n/12 Synkarius. \OT1/cmr/m/it/12 synkar-ius/salt-bot\OT1/cmr/m/n/1
 2 . 2019. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / g
 ithub . com / synkarius /
  []
 
-[42] [43]
+[41] [42]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 515.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 503.
 
-Overfull \hbox (351.00647pt too wide) in paragraph at lines 515--517
+Overfull \hbox (351.00647pt too wide) in paragraph at lines 503--505
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[44] (./writing_project_2019.aux)
+[43] (./writing_project_2019.aux)
+
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: There were multiply-defined labels.
+
+
+Package biblatex Warning: Please (re)run BibTeX on the file(s):
+(biblatex)                writing_project_2019
+(biblatex)                and rerun LaTeX afterwards.
 
 Package logreq Info: Writing requests to 'writing_project_2019.run.xml'.
 \openout1 = `writing_project_2019.run.xml'.
@@ -1035,32 +1024,32 @@ Package logreq Info: Writing requests to 'writing_project_2019.run.xml'.
 ### semi simple group (level 1) entered at line 153 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 13964 strings out of 492616
- 231090 string characters out of 6135177
- 624794 words of memory out of 5000000
- 17716 multiletter control sequences out of 15000+600000
- 13120 words of font info for 47 fonts, out of 8000000 for 9000
+ 13588 strings out of 492616
+ 224070 string characters out of 6135177
+ 609168 words of memory out of 5000000
+ 17341 multiletter control sequences out of 15000+600000
+ 12811 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,19n,45p,2167b,1781s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,19n,45p,2167b,1769s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pf
 b></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/font
-s/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
-r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><
-/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.
-pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on writing_project_2019.pdf (46 pages, 1954350 bytes).
+texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></us
+r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></
+usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12
+.pfb>
+Output written on writing_project_2019.pdf (45 pages, 1948109 bytes).
 PDF statistics:
- 241 PDF objects out of 1000 (max. 8388607)
- 159 compressed objects within 2 object streams
+ 234 PDF objects out of 1000 (max. 8388607)
+ 154 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
