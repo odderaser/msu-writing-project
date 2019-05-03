@@ -19,52 +19,47 @@ Reallocated singl_function (elt_size=8) to 100 items from 50.
 Database file #1: writing_project_2019-blx.bib
 Database file #2: references.bib
 Reallocated field_info (elt_size=8) to 10004 items from 5000.
-A bad cross reference---entry "twhelan2010"
-refers to entry "https://ccrg.rit.edu/~whelan/talks/whelan20101008.pdf", which doesn't exist
-Warning--I didn't find a database entry for "ruiz2015generative"
-Warning--I didn't find a database entry for "dutta2017identifying"
 Biblatex version: 3.11
 Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
-You've used 39 entries,
+You've used 41 entries,
             6304 wiz_defined-function locations,
-            1411 strings with 14371 characters,
-and the built_in function-call counts, 157200 in all, are:
-= -- 9605
-> -- 3058
-< -- 1235
-+ -- 2671
-- -- 1006
-* -- 10487
-:= -- 12983
+            1419 strings with 14678 characters,
+and the built_in function-call counts, 172442 in all, are:
+= -- 10750
+> -- 3329
+< -- 1314
++ -- 2990
+- -- 1113
+* -- 11741
+:= -- 14566
 add.period$ -- 0
-call.type$ -- 39
-change.case$ -- 688
+call.type$ -- 41
+change.case$ -- 730
 chr.to.int$ -- 46
-cite$ -- 76
-duplicate$ -- 16959
-empty$ -- 16332
-format.name$ -- 1585
-if$ -- 34115
+cite$ -- 80
+duplicate$ -- 18325
+empty$ -- 17744
+format.name$ -- 1741
+if$ -- 37294
 int.to.chr$ -- 0
-int.to.str$ -- 88
+int.to.str$ -- 94
 missing$ -- 0
-newline$ -- 906
-num.names$ -- 1612
-pop$ -- 12563
+newline$ -- 979
+num.names$ -- 1720
+pop$ -- 13256
 preamble$ -- 1
-purify$ -- 767
+purify$ -- 822
 quote$ -- 0
-skip$ -- 6093
+skip$ -- 6501
 stack$ -- 0
-substring$ -- 14634
-swap$ -- 4890
-text.length$ -- 879
-text.prefix$ -- 38
+substring$ -- 16882
+swap$ -- 5240
+text.length$ -- 941
+text.prefix$ -- 40
 top$ -- 1
-type$ -- 1314
+type$ -- 1382
 warning$ -- 0
-while$ -- 1661
+while$ -- 1840
 width$ -- 0
-write$ -- 868
-(There was 1 error message)
+write$ -- 939
