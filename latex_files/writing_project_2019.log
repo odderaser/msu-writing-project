@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.5.2)  2 MAY 2019 22:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.5.2)  3 MAY 2019 08:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -997,37 +997,37 @@ LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 509.
 
 [38 <../images/theta_dist.png>] [39] [40] [41] [42]
-Overfull \hbox (18.33662pt too wide) in paragraph at lines 536--536
+Overfull \hbox (18.33662pt too wide) in paragraph at lines 535--535
 \OT1/cmr/m/n/12 plete Block De-signs: I. The Method of Paired Com-par-isons''. 
 In: \OT1/cmr/m/it/12 Biometrika
  []
 
 
-Overfull \hbox (6.67133pt too wide) in paragraph at lines 536--536
+Overfull \hbox (6.67133pt too wide) in paragraph at lines 535--535
 []\OT1/cmr/m/n/12 George Casella and Roger L Berger. \OT1/cmr/m/it/12 Sta-tis-t
 i-cal in-fer-ence\OT1/cmr/m/n/12 . Vol. 2. Duxbury
  []
 
 
-Overfull \hbox (19.13066pt too wide) in paragraph at lines 536--536
+Overfull \hbox (19.13066pt too wide) in paragraph at lines 535--535
 \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / www . nytim
 es . com / 2004 / 12 / 12 / magazine / sabermetrics -[]
  []
 
 [43]
-Overfull \hbox (0.5106pt too wide) in paragraph at lines 536--536
+Overfull \hbox (0.5106pt too wide) in paragraph at lines 535--535
 []\OT1/cmr/m/it/12 Have You Played... Salty Bet? \OT1/cmr/m/sc/12 url\OT1/cmr/m
 /n/12 : $\OT1/cmtt/m/n/12 https : / / www . rockpapershotgun .
  []
 
 [44]
-Overfull \hbox (18.1679pt too wide) in paragraph at lines 536--536
+Overfull \hbox (18.1679pt too wide) in paragraph at lines 535--535
 []\OT1/cmr/m/n/12 Kyle Hilliard. \OT1/cmr/m/it/12 An In-ter-view With The Mind 
 Be-hind Twitch Plays Pok^^Semon\OT1/cmr/m/n/12 .
  []
 
 [45]
-Overfull \hbox (23.10529pt too wide) in paragraph at lines 536--536
+Overfull \hbox (23.10529pt too wide) in paragraph at lines 535--535
 []\OT1/cmr/m/n/12 Synkarius. \OT1/cmr/m/it/12 synkar-ius/salt-bot\OT1/cmr/m/n/1
 2 . 2019. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / g
 ithub . com / synkarius /
@@ -1058,7 +1058,7 @@ Here is how much of TeX's memory you used:
  16399 multiletter control sequences out of 15000+600000
  12811 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,19n,45p,2169b,1229s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,19n,45p,2169b,1223s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pf
 b></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fo
@@ -1074,7 +1074,7 @@ f-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12
 .pfb>
-Output written on writing_project_2019.pdf (51 pages, 2001466 bytes).
+Output written on writing_project_2019.pdf (51 pages, 2000890 bytes).
 PDF statistics:
  259 PDF objects out of 1000 (max. 8388607)
  167 compressed objects within 2 object streams
